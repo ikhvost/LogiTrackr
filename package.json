@@ -1,11 +1,28 @@
 {
-  "name": "root",
+  "name": "saas-versioning",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "apps/*"
   ],
-  "dependencies": {},
   "devDependencies": {
-    "lerna": "^8.0.2"
+    "@types/node": "^20.11.6",
+    "@types/ramda": "^0.29.10",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "eslint": "^8.56.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "lerna": "^8.0.2",
+    "ramda": "^0.29.1",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.2"
+  },
+  "lerna": {
+    "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+    "version": "0.0.0"
   }
 }
