@@ -10,6 +10,9 @@ interface ConfigSchema {
   app: {
     port: number
   }
+  database: {
+    connection: string
+  }
 }
 
 export type Config = ConfigSchema
@@ -19,15 +22,23 @@ export const Prefix = 'VERSIONING'
 const schema: JSONSchemaType<Config> = {
   additionalProperties: true,
   type:                 'object',
-  required:             ['app'],
+  required:             ['app', 'database'],
   properties:           {
     app: {
       type:       'object',
       required:   ['port'],
       properties: {
         port: {
-          type:    'number',
-          default: 3000,
+          type: 'number',
+        },
+      },
+    },
+    database: {
+      type:       'object',
+      required:   ['connection'],
+      properties: {
+        connection: {
+          type: 'string',
         },
       },
     },
