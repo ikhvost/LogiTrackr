@@ -7,7 +7,8 @@
     "build": "yarn clean && tsc",
     "watch": "tsx watch src/main.ts",
     "start": "node ./dist/main.js",
-    "lint": "eslint tests src"
+    "lint": "eslint tests src",
+    "test": "vitest run"
   },
   "dependencies": {
     "ajv": "^8.12.0",

@@ -4,6 +4,12 @@
   "workspaces": [
     "apps/*"
   ],
+  "scripts": {
+    "clean": "lerna run clean",
+    "build": "lerna run build --stream",
+    "lint": "lerna run lint --stream",
+    "test": "lerna run test --stream"
+  },
   "devDependencies": {
     "@types/node": "^20.11.6",
     "@types/ramda": "^0.29.10",
