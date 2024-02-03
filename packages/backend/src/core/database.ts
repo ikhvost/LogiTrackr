@@ -1,12 +1,12 @@
 import postgres from 'postgres'
 import { ContainerModule } from 'inversify'
-import { NodePgDatabase, drizzle } from 'drizzle-orm/node-postgres'
+import { drizzle, PostgresJsDatabase } from 'drizzle-orm/postgres-js'
 
 import { Hook, HookFn } from './hooks'
 import { Config } from './config'
 
 export const Database = Symbol.for('database')
-export type Database = NodePgDatabase<Record<string, never>>
+export type Database = PostgresJsDatabase<Record<string, never>>
 
 export default new ContainerModule(bind => {
   bind<HookFn>(Hook.Bootstrap).toConstantValue(async container => {
