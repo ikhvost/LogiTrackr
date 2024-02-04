@@ -19,6 +19,5 @@ _assert-tools: # check if given TOOLS is available
 
 # include nested makefiles
 include ./*/*.mk
-include ./packages/*/*.mk
 
 # leave the empty line at end of file for autocomplete to work
