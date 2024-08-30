@@ -6,7 +6,7 @@ import config from './config'
 
 export const compositeRoot = () => {
   const container = new Container({
-    defaultScope:       BindingScopeEnum.Singleton,
+    defaultScope: BindingScopeEnum.Singleton,
     autoBindInjectable: true,
   })
 

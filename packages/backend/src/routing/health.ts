@@ -1,7 +1,7 @@
 import { RouteOptions } from 'fastify'
 
 const health: RouteOptions = {
-  url:    '/health',
+  url: '/health',
   method: 'GET',
 
   handler: (_, res) => {
@@ -11,6 +11,4 @@ const health: RouteOptions = {
   },
 }
 
-export default [
-  health,
-]
+export default [health]
