@@ -7,20 +7,20 @@
     "test": "pnpm --recursive exec -- pnpm run test"
   },
   "devDependencies": {
-    "@types/node": "^20.11.6",
-    "@types/ramda": "^0.29.10",
-    "@typescript-eslint/eslint-plugin": "^6.19.1",
-    "@typescript-eslint/parser": "^6.19.1",
-    "dotenv": "^16.4.1",
-    "eslint": "^8.56.0",
+    "@types/node": "^20.16.2",
+    "@types/ramda": "^0.29.12",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-promise": "^6.6.0",
     "ramda": "^0.29.1",
-    "rimraf": "^5.0.5",
-    "typescript": "^5.3.3",
-    "vitest": "^1.2.2"
+    "rimraf": "^5.0.10",
+    "typescript": "^5.5.4",
+    "vitest": "^1.6.0"
   }
 }
