@@ -12,7 +12,7 @@ help: _help
 _help:
 	@fgrep -h "##" $(MAKEFILE_LIST) | sed -e 's/\(\:.*\#\#\)/\:\ /' | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
-_assert-tools: # check if given TOOLS is available
+_assert_tools: # check if given TOOLS is available
 	@for TOOL in $(TOOLS); do \
 		type $$TOOL &> /dev/null || (echo -e "Please install '$$TOOL' and run the command again.\n"; exit 1); \
 	done
