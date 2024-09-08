@@ -11,6 +11,4 @@ const health: RouteOptions = {
   },
 }
 
-export default [
-  health,
-]
+export default [health]
