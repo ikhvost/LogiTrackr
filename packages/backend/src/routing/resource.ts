@@ -9,8 +9,8 @@ export interface ResourcePayload {
   data: Record<string, unknown>
 }
 
-const endpoints: RouteOptions = {
-  url:       '/resource',
+const endpoints: RouteOptions[] = [{
+  url:       '/resources',
   method:    'POST',
   bodyLimit: 1048576, // limits the overall size of the JSON to 1MB
   schema:    {
@@ -51,6 +51,6 @@ const endpoints: RouteOptions = {
       .then(() => reply.status(200).send({ message: 'Resource updated' }))
       .catch(() => reply.status(500).send({ message: 'Failed to update resource' }))
   }) as RouteHandlerMethod,
-}
+}]
 
-export default [endpoints]
+export default endpoints
