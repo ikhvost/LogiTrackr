@@ -8,7 +8,7 @@
     "watch": "tsx watch src/main.ts",
     "start": "node ./dist/main.js",
     "lint": "eslint tests src",
-    "test": "vitest run"
+    "test": "vitest run --isolate"
   },
   "dependencies": {
     "ajv": "^8.16.0",
@@ -19,6 +19,7 @@
     "postgres": "^3.4.4"
   },
   "devDependencies": {
+    "builder-pattern": "^2.2.0",
     "drizzle-kit": "^0.24.2",
     "tsx": "^4.15.6"
   }

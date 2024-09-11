@@ -1,14 +1,10 @@
-import { RouteOptions } from 'fastify'
+import { RouteOptions, FastifyReply } from 'fastify'
 
-const health: RouteOptions = {
-  url:    '/health',
-  method: 'GET',
-
-  handler: (_, res) => {
-    void res.send({
-      status: 'ok',
-    })
-  },
+const endpoints: RouteOptions = {
+  url:     '/health',
+  method:  'GET',
+  handler: (_, reply: FastifyReply) =>
+    reply.send({ status: 'ok' }),
 }
 
-export default [health]
+export default [endpoints]
