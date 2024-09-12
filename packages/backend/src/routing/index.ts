@@ -1,5 +1,3 @@
 import health from './health'
 
-export default [
-  ...health,
-]
+export default [...health]
