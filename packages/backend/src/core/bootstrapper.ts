@@ -10,6 +10,6 @@ export const bootstrapper = async () => {
   return {
     container,
     start: async () => emit(container, Hook.Start, true),
-    stop:  async () => emit(container, Hook.Stop, true),
+    stop: async () => emit(container, Hook.Stop, true),
   }
 }

@@ -21,12 +21,12 @@ export const Prefix = 'VERSIONING'
 
 const schema: JSONSchemaType<Config> = {
   additionalProperties: true,
-  type:                 'object',
-  required:             ['app', 'database'],
-  properties:           {
+  type: 'object',
+  required: ['app', 'database'],
+  properties: {
     app: {
-      type:       'object',
-      required:   ['port'],
+      type: 'object',
+      required: ['port'],
       properties: {
         port: {
           type: 'number',
@@ -34,8 +34,8 @@ const schema: JSONSchemaType<Config> = {
       },
     },
     database: {
-      type:       'object',
-      required:   ['connection'],
+      type: 'object',
+      required: ['connection'],
       properties: {
         connection: {
           type: 'string',
@@ -45,8 +45,8 @@ const schema: JSONSchemaType<Config> = {
   },
 }
 
-export default new ContainerModule(bind => {
-  bind<HookFn>(Hook.Bootstrap).toConstantValue(container => {
+export default new ContainerModule((bind) => {
+  bind<HookFn>(Hook.Bootstrap).toConstantValue((container) => {
     dotenv.config()
 
     const configDiscovery = new ConfigDiscovery()

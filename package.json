@@ -4,7 +4,9 @@
   "scripts": {
     "build": "pnpm --recursive exec -- pnpm run build",
     "lint": "pnpm --recursive exec -- pnpm run lint",
-    "test": "pnpm --recursive exec -- pnpm run test"
+    "test": "pnpm --recursive exec -- pnpm run test",
+    "format": "pnpm --recursive exec -- pnpm run format:check",
+    "format:fix": "pnpm --recursive exec -- pnpm run format:fix"
   },
   "devDependencies": {
     "@types/node": "^20.16.2",
@@ -13,14 +15,21 @@
     "@typescript-eslint/parser": "^6.21.0",
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-promise": "^6.6.0",
+    "prettier": "3.3.3",
+    "prettier-eslint": "^16.3.0",
     "ramda": "^0.29.1",
     "rimraf": "^5.0.10",
     "typescript": "^5.5.4",
     "vitest": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
