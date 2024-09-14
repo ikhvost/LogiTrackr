@@ -10,44 +10,52 @@ export interface ResourcePayload {
 }
 
 const endpoints: RouteOptions = {
-  url:       '/resource',
-  method:    'POST',
+  url: '/resource',
+  method: 'POST',
   bodyLimit: 1048576, // limits the overall size of the JSON to 1MB
-  schema:    {
+  schema: {
     body: {
-      type:       'object',
+      type: 'object',
       properties: {
         id: {
-          type:      'string',
+          type: 'string',
           minLength: 1,
           maxLength: 36,
         },
         type: {
-          type:      'string',
+          type: 'string',
           minLength: 1,
           maxLength: 50,
         },
         data: {
-          type:                 'object',
+          type: 'object',
           additionalProperties: true,
         },
       },
-      required:             ['id', 'type', 'data'],
+      required: ['id', 'type', 'data'],
       additionalProperties: false,
     },
   },
   handler: (async ({ container, body }: FastifyRequest<{ Body: ResourcePayload }>, reply: FastifyReply) => {
     const db = container.get<Database>(Database)
 
-    return db.transaction(async tx => {
-      const [version] = await tx.insert(versions).values({ data: body.data }).returning()
-      const [exists] = await tx.select().from(resources).where(eq(resources.externalId, body.id)).limit(1)
-      const [resource] = exists
-        ? await tx.update(resources).set({ lastVersionId: version.id }).where(eq(resources.externalId, body.id)).returning()
-        : await tx.insert(resources).values({ externalId: body.id, type: body.type, lastVersionId: version.id }).returning()
+    return db
+      .transaction(async (tx) => {
+        const [version] = await tx.insert(versions).values({ data: body.data }).returning()
+        const [exists] = await tx.select().from(resources).where(eq(resources.externalId, body.id)).limit(1)
+        const [resource] = exists
+          ? await tx
+              .update(resources)
+              .set({ lastVersionId: version.id })
+              .where(eq(resources.externalId, body.id))
+              .returning()
+          : await tx
+              .insert(resources)
+              .values({ externalId: body.id, type: body.type, lastVersionId: version.id })
+              .returning()
 
-      await tx.update(versions).set({ resourceId: resource.id }).where(eq(versions.id, version.id))
-    })
+        await tx.update(versions).set({ resourceId: resource.id }).where(eq(versions.id, version.id))
+      })
       .then(() => reply.status(200).send({ message: 'Resource updated' }))
       .catch(() => reply.status(500).send({ message: 'Failed to update resource' }))
   }) as RouteHandlerMethod,

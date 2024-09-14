@@ -11,7 +11,7 @@ export class ConfigDiscovery {
 
   constructor() {
     this.#ajv = new Ajv({
-      allErrors:   true,
+      allErrors: true,
       useDefaults: true,
       coerceTypes: true,
     })
@@ -28,8 +28,8 @@ export class ConfigDiscovery {
       const path = key
         .substring(prefix.length)
         .split(ConfigDiscovery.#Delimiter)
-        .filter(part => !R.isEmpty(part))
-        .map(part => camelCase(part))
+        .filter((part) => !R.isEmpty(part))
+        .map((part) => camelCase(part))
 
       config = R.mergeDeepLeft(R.assocPath(path, value, config), config)
     }
