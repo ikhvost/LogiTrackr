@@ -8,13 +8,13 @@ import { Config } from './config'
 export const Application = Symbol.for('application')
 export type Application = FastifyInstance
 
-export default new ContainerModule(bind => {
-  bind<HookFn>(Hook.Bootstrap).toConstantValue(async container => {
+export default new ContainerModule((bind) => {
+  bind<HookFn>(Hook.Bootstrap).toConstantValue(async (container) => {
     const app = fastify({
       logger: true,
     })
 
-    routing.forEach(route => app.route(route))
+    routing.forEach((route) => app.route(route))
 
     app.addHook('onRequest', (request, _reply, done) => {
       request.container = container
@@ -26,7 +26,7 @@ export default new ContainerModule(bind => {
 
     container.bind(Application).toConstantValue(app)
   })
-  bind<HookFn>(Hook.Start).toConstantValue(async container => {
+  bind<HookFn>(Hook.Start).toConstantValue(async (container) => {
     const app = container.get<Application>(Application)
     const config = container.get<Config>(Config)
 

@@ -20,15 +20,11 @@ describe('Integration: API /resources', () => {
   })
 
   test('return 200 on creating a new resource successfully', async () => {
-    const payload = ResourcePayloadBuilder()
-      .id('test-resource-id')
-      .type('test-type')
-      .data({ key: 'value' })
-      .build()
+    const payload = ResourcePayloadBuilder().id('test-resource-id').type('test-type').data({ key: 'value' }).build()
 
     const response = await testing.request({
       method: 'POST',
-      path:   '/resources',
+      path: '/resources',
       payload,
     })
 
@@ -38,21 +34,25 @@ describe('Integration: API /resources', () => {
     const resources = await testing.db.select().from(schema.resources)
     const versions = await testing.db.select().from(schema.versions)
 
-    expect(resources).toEqual([{
-      id:            expect.any(String),
-      lastVersionId: versions[0].id,
-      externalId:    payload.id,
-      type:          payload.type,
-      createdAt:     expect.any(Date),
-      updatedAt:     expect.any(Date),
-    }])
+    expect(resources).toEqual([
+      {
+        id: expect.any(String),
+        lastVersionId: versions[0].id,
+        externalId: payload.id,
+        type: payload.type,
+        createdAt: expect.any(Date),
+        updatedAt: expect.any(Date),
+      },
+    ])
 
-    expect(versions).toEqual([{
-      id:         expect.any(String),
-      createdAt:  expect.any(Date),
-      resourceId: resources[0].id,
-      data:       payload.data,
-    }])
+    expect(versions).toEqual([
+      {
+        id: expect.any(String),
+        createdAt: expect.any(Date),
+        resourceId: resources[0].id,
+        data: payload.data,
+      },
+    ])
   })
 
   test('return 200 on updating an existing resource', async () => {
@@ -61,14 +61,14 @@ describe('Integration: API /resources', () => {
 
     // Create initial resource
     await testing.request({
-      method:  'POST',
-      path:    '/resources',
+      method: 'POST',
+      path: '/resources',
       payload: payload1,
     })
 
     const response = await testing.request({
-      method:  'POST',
-      path:    '/resources',
+      method: 'POST',
+      path: '/resources',
       payload: payload2,
     })
 
@@ -78,48 +78,47 @@ describe('Integration: API /resources', () => {
     const resources = await testing.db.select().from(schema.resources)
     const versions = await testing.db.select().from(schema.versions)
 
-    expect(resources).toEqual([{
-      id:            expect.any(String),
-      lastVersionId: versions[1].id,
-      externalId:    payload1.id,
-      type:          payload1.type,
-      createdAt:     expect.any(Date),
-      updatedAt:     expect.any(Date),
-    }])
+    expect(resources).toEqual([
+      {
+        id: expect.any(String),
+        lastVersionId: versions[1].id,
+        externalId: payload1.id,
+        type: payload1.type,
+        createdAt: expect.any(Date),
+        updatedAt: expect.any(Date),
+      },
+    ])
 
     expect(versions).toEqual([
       {
-        id:         expect.any(String),
-        createdAt:  expect.any(Date),
+        id: expect.any(String),
+        createdAt: expect.any(Date),
         resourceId: resources[0].id,
-        data:       payload1.data,
+        data: payload1.data,
       },
       {
-        id:         expect.any(String),
-        createdAt:  expect.any(Date),
+        id: expect.any(String),
+        createdAt: expect.any(Date),
         resourceId: resources[0].id,
-        data:       payload2.data,
+        data: payload2.data,
       },
     ])
   })
 
   test('returns 400 for invalid payload', async () => {
-    const payload = ResourcePayloadBuilder()
-      .id('test-resource-id')
-      .type('test-type')
-      .build()
+    const payload = ResourcePayloadBuilder().id('test-resource-id').type('test-type').build()
 
     const response = await testing.request({
       method: 'POST',
-      path:   '/resources',
+      path: '/resources',
       payload,
     })
 
     expect(response.json()).toEqual({
       statusCode: 400,
-      code:       'FST_ERR_VALIDATION',
-      error:      'Bad Request',
-      message:    'body must have required property \'data\'',
+      code: 'FST_ERR_VALIDATION',
+      error: 'Bad Request',
+      message: "body must have required property 'data'",
     })
   })
 
@@ -132,15 +131,15 @@ describe('Integration: API /resources', () => {
 
     const response = await testing.request({
       method: 'POST',
-      path:   '/resources',
+      path: '/resources',
       payload,
     })
 
     expect(response.json()).toEqual({
       statusCode: 413,
-      code:       'FST_ERR_CTP_BODY_TOO_LARGE',
-      error:      'Payload Too Large',
-      message:    'Request body is too large',
+      code: 'FST_ERR_CTP_BODY_TOO_LARGE',
+      error: 'Payload Too Large',
+      message: 'Request body is too large',
     })
   })
 })

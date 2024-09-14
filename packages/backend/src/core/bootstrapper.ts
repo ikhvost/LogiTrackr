@@ -8,7 +8,7 @@ import config from './config'
 
 export const bootstrapper = async () => {
   const container = new Container({
-    defaultScope:       BindingScopeEnum.Singleton,
+    defaultScope: BindingScopeEnum.Singleton,
     autoBindInjectable: true,
   })
 
@@ -22,6 +22,6 @@ export const bootstrapper = async () => {
   return {
     container,
     start: async () => emit(container, Hook.Start, true),
-    stop:  async () => emit(container, Hook.Stop, true),
+    stop: async () => emit(container, Hook.Stop, true),
   }
 }

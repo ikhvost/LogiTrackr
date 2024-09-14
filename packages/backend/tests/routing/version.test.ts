@@ -31,7 +31,7 @@ describe('Integration: API /resources/:resourceId/versions', () => {
     const [resource] = await testing.db.select().from(schema.resources).limit(1)
     const response = await testing.request({
       method: 'GET',
-      path:   `/resources/${resource.id}/versions`,
+      path: `/resources/${resource.id}/versions`,
     })
 
     expect(response.statusCode).toEqual(200)
@@ -39,19 +39,19 @@ describe('Integration: API /resources/:resourceId/versions', () => {
       versions: [
         {
           createdAt: expect.any(String),
-          id:        expect.any(String),
-          data:      { version: 2 },
+          id: expect.any(String),
+          data: { version: 2 },
         },
         {
           createdAt: expect.any(String),
-          id:        expect.any(String),
-          data:      { version: 1 },
+          id: expect.any(String),
+          data: { version: 1 },
         },
       ],
       metadata: {
-        totalCount:  2,
+        totalCount: 2,
         currentPage: 1,
-        totalPages:  1,
+        totalPages: 1,
       },
     })
   })
@@ -62,8 +62,8 @@ describe('Integration: API /resources/:resourceId/versions', () => {
     // Create 25 versions
     for (let i = 1; i <= 25; i++) {
       await testing.request({
-        method:  'POST',
-        path:    '/resources',
+        method: 'POST',
+        path: '/resources',
         payload: { ...payload, data: { version: i } },
       })
     }
@@ -71,66 +71,66 @@ describe('Integration: API /resources/:resourceId/versions', () => {
     const [resource] = await testing.db.select().from(schema.resources).limit(1)
     const response = await testing.request({
       method: 'GET',
-      path:   `/resources/${resource.id}/versions?page=2&size=10`,
+      path: `/resources/${resource.id}/versions?page=2&size=10`,
     })
 
     expect(response.statusCode).toEqual(200)
     expect(response.json()).toEqual({
       metadata: {
         currentPage: 2,
-        totalCount:  25,
-        totalPages:  3,
+        totalCount: 25,
+        totalPages: 3,
       },
       versions: [
         {
-          data:      { version: 15 },
+          data: { version: 15 },
           createdAt: expect.any(String),
-          id:        expect.any(String),
+          id: expect.any(String),
         },
         {
-          data:      { version: 14 },
+          data: { version: 14 },
           createdAt: expect.any(String),
-          id:        expect.any(String),
+          id: expect.any(String),
         },
         {
-          data:      { version: 13 },
+          data: { version: 13 },
           createdAt: expect.any(String),
-          id:        expect.any(String),
+          id: expect.any(String),
         },
         {
-          data:      { version: 12 },
+          data: { version: 12 },
           createdAt: expect.any(String),
-          id:        expect.any(String),
+          id: expect.any(String),
         },
         {
-          data:      { version: 11 },
+          data: { version: 11 },
           createdAt: expect.any(String),
-          id:        expect.any(String),
+          id: expect.any(String),
         },
         {
-          data:      { version: 10 },
+          data: { version: 10 },
           createdAt: expect.any(String),
-          id:        expect.any(String),
+          id: expect.any(String),
         },
         {
-          data:      { version: 9 },
+          data: { version: 9 },
           createdAt: expect.any(String),
-          id:        expect.any(String),
+          id: expect.any(String),
         },
         {
-          data:      { version: 8 },
+          data: { version: 8 },
           createdAt: expect.any(String),
-          id:        expect.any(String),
+          id: expect.any(String),
         },
         {
-          data:      { version: 7 },
+          data: { version: 7 },
           createdAt: expect.any(String),
-          id:        expect.any(String),
+          id: expect.any(String),
         },
         {
-          data:      { version: 6 },
+          data: { version: 6 },
           createdAt: expect.any(String),
-          id:        expect.any(String),
+          id: expect.any(String),
         },
       ],
     })
@@ -139,16 +139,16 @@ describe('Integration: API /resources/:resourceId/versions', () => {
   test('return 200 and empty list for non-existent resourceId', async () => {
     const response = await testing.request({
       method: 'GET',
-      path:   '/resources/00000000-0000-0000-0000-000000000000/versions',
+      path: '/resources/00000000-0000-0000-0000-000000000000/versions',
     })
 
     expect(response.statusCode).toEqual(200)
     expect(response.json()).toEqual({
       versions: [],
       metadata: {
-        totalCount:  0,
+        totalCount: 0,
         currentPage: 1,
-        totalPages:  0,
+        totalPages: 0,
       },
     })
   })
@@ -156,14 +156,14 @@ describe('Integration: API /resources/:resourceId/versions', () => {
   test('return 400 for invalid resourceId', async () => {
     const response = await testing.request({
       method: 'GET',
-      path:   '/resources/invalid-uuid/versions',
+      path: '/resources/invalid-uuid/versions',
     })
 
     expect(response.statusCode).toEqual(400)
     expect(response.json()).toEqual({
-      code:       'FST_ERR_VALIDATION',
-      error:      'Bad Request',
-      message:    'params/resourceId must match format "uuid"',
+      code: 'FST_ERR_VALIDATION',
+      error: 'Bad Request',
+      message: 'params/resourceId must match format "uuid"',
       statusCode: 400,
     })
   })
