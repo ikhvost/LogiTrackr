@@ -17,7 +17,7 @@ interface ConfigSchema {
 
 export type Config = ConfigSchema
 export const Config = Symbol('config')
-export const Prefix = 'VERSIONING'
+export const Prefix = 'AUDIT'
 
 const schema: JSONSchemaType<Config> = {
   additionalProperties: true,

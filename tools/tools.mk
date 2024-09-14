@@ -1,55 +1,56 @@
 WITH_TOOLS_ENV = set -o allexport; source tools/db.env; set +o allexport;
 TOOLS_COMPOSE = $(WITH_TOOLS_ENV) docker-compose -f tools/docker-compose.yml
 
+_ensure_audit_db_connection:
+	@if [ -z "$$AUDIT__DATABASE__CONNECTION" ]; then \
+		$(WITH_TOOLS_ENV) \
+		export AUDIT__DATABASE__CONNECTION="postgresql://$$POSTGRES_USER:$$POSTGRES_PASSWORD@$$POSTGRES_PORT:$$POSTGRES_PORT/$$POSTGRES_DB"; \
+	fi
+
 db@up: ## Start the local database
 db@up: TOOLS=docker docker-compose
-db@up: _assert-tools
+db@up: _assert_tools
 db@up:
 	@$(TOOLS_COMPOSE) up -d db
 
 db@stop: ## Stop the local database
 db@stop: TOOLS=docker docker-compose
-db@stop: _assert-tools
+db@stop: _assert_tools
 db@stop:
 	@$(TOOLS_COMPOSE) stop db
 
 db@down: ## Remove the local database
 db@down: TOOLS=docker docker-compose
-db@down: _assert-tools
+db@down: _assert_tools
 db@down:
 	@$(TOOLS_COMPOSE) down --remove-orphans
 
 db@logs: ## Show logs from the local database
 db@logs: TOOLS=docker docker-compose
-db@logs: _assert-tools
+db@logs: _assert_tools
 db@logs:
 	@$(TOOLS_COMPOSE) logs -f db
 
 db@generate: ## Generate new migration file
 db@generate: TOOLS=node
-db@generate: _assert-tools
+db@generate: _assert_tools
+db@genarete: _ensure_audit_db_connection
 db@generate:
 	@cd packages/backend && \
-		./node_modules/.bin/drizzle-kit generate:pg --config=./database/config.ts
+		./node_modules/.bin/drizzle-kit generate --config=./src/orm.ts
 
-.ONESHELL:
-db@migrate: ## Migrate database for given ENV
+db@migrate: ## Migrate database
 db@migrate: TOOLS=node
-db@migrate: _assert-tools
+db@migrate: _assert_tools
+db@migrate: _ensure_audit_db_connection
 db@migrate:
-	@cd packages/backend
-	@./node_modules/.bin/sls invoke $(and $(findstring dev,$(ENV)),local) \
-		-f migrate \
-		-s $(ENV) \
-		-d '{ "op": "run" }'
+	@cd packages/backend && \
+		./node_modules/.bin/drizzle-kit migrate --config=./src/orm.ts
 
-.ONESHELL:
-db@revert: ## Revert database to TARGET_MIGRATION for given ENV
-db@revert: TOOLS=node
-db@revert: _assert-tools
-db@revert:
-	@cd packages/backend
-	@./node_modules/.bin/sls invoke $(and $(findstring dev,$(ENV)),local) \
-		-f migrate \
-		-s $(ENV) \
-		-d '{ "op": "revert", "targetMigration": "$(TARGET_MIGRATION)" }'
+db@dashboard: ## Open Drizzle-kit Studio
+db@dashboard: TOOLS=node
+db@dashboard: _assert_tools
+db@dashboard: _ensure_audit_db_connection
+db@dashboard:
+	@cd packages/backend && \
+		./node_modules/.bin/drizzle-kit studio --config=./src/orm.ts
