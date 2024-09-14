@@ -8,8 +8,8 @@ import { Config } from './config'
 export const Database = Symbol.for('database')
 export type Database = PostgresJsDatabase<Record<string, never>>
 
-export default new ContainerModule(bind => {
-  bind<HookFn>(Hook.Bootstrap).toConstantValue(async container => {
+export default new ContainerModule((bind) => {
+  bind<HookFn>(Hook.Bootstrap).toConstantValue(async (container) => {
     const config = container.get<Config>(Config)
     const client = postgres(config.database.connection)
     const database = drizzle(client)

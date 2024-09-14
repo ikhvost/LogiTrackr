@@ -1,7 +1,7 @@
 import { RouteOptions } from 'fastify'
 
 const health: RouteOptions = {
-  url:    '/health',
+  url: '/health',
   method: 'GET',
 
   handler: (_, res) => {

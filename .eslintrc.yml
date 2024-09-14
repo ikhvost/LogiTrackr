@@ -8,6 +8,7 @@ extends:
   - 'plugin:@typescript-eslint/eslint-recommended'
   - 'plugin:@typescript-eslint/recommended'
   - 'plugin:@typescript-eslint/recommended-requiring-type-checking'
+  - 'plugin:prettier/recommended'
 
 plugins:
   - '@typescript-eslint'
@@ -28,11 +29,11 @@ rules:
   '@typescript-eslint/require-await': off
   '@typescript-eslint/no-unsafe-call': off
   '@typescript-eslint/no-unsafe-assignment': off
+  'prettier/prettier': off
   padded-blocks: 0
   operator-linebreak: [ error, before ]
   semi: [ error, never ]
   comma-dangle: [ error, always-multiline ]
-  key-spacing: [ error, { align: value } ]
   no-multi-spaces: 0
   camelcase: 0
   array-callback-return: 0
