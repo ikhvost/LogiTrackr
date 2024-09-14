@@ -1,8 +1,20 @@
-import { compositeRoot } from './container'
+import { Container, BindingScopeEnum } from 'inversify'
+
 import { emit, Hook } from './hooks'
 
+import application from './application'
+import database from './database'
+import config from './config'
+
 export const bootstrapper = async () => {
-  const container = compositeRoot()
+  const container = new Container({
+    defaultScope: BindingScopeEnum.Singleton,
+    autoBindInjectable: true,
+  })
+
+  container.load(config)
+  container.load(database)
+  container.load(application)
 
   // emit Application bootstrap hook
   await emit(container, Hook.Bootstrap, true)
