@@ -87,6 +87,9 @@ importers:
         specifier: ^3.4.4
         version: 3.4.4
     devDependencies:
+      builder-pattern:
+        specifier: ^2.2.0
+        version: 2.2.0
       drizzle-kit:
         specifier: ^0.24.2
         version: 0.24.2
@@ -901,6 +904,9 @@ packages:
 
   buffer@6.0.3:
     resolution: {integrity: sha512-FTiCpNxtwiZZHEZbcbTIcZjERVICn9yq/pDFkTl95/AxzD1naBctN7YO68riM/gLSDY7sdrMby8hofADYuuqOA==}
+
+  builder-pattern@2.2.0:
+    resolution: {integrity: sha512-cES3qdeBzA4QyJi7rV/l/kAhIFX6AKo3vK66ZPXLNpjcQWCS8sjLKscly8imlfW2YPTo/hquMRMnaWpZ80Kj+g==}
 
   builtin-modules@3.3.0:
     resolution: {integrity: sha512-zhaCDicdLuWN5UbN5IMnFqNMhNfo919sH85y2/ea+5Yg9TsTkeZxpL+JLbp6cgYFS4sRLp3YV4S6yDuqVWHYOw==}
@@ -3011,6 +3017,8 @@ snapshots:
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1
+
+  builder-pattern@2.2.0: {}
 
   builtin-modules@3.3.0: {}
 

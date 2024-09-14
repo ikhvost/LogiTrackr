@@ -4,6 +4,7 @@ env:
 
 extends:
   - 'standard'
+  - 'prettier'
   - 'eslint:recommended'
   - 'plugin:@typescript-eslint/eslint-recommended'
   - 'plugin:@typescript-eslint/recommended'
@@ -29,7 +30,7 @@ rules:
   '@typescript-eslint/require-await': off
   '@typescript-eslint/no-unsafe-call': off
   '@typescript-eslint/no-unsafe-assignment': off
-  'prettier/prettier': off
+  'prettier/prettier': error
   padded-blocks: 0
   operator-linebreak: [ error, before ]
   semi: [ error, never ]
@@ -41,9 +42,6 @@ rules:
   no-useless-constructor: 0
   no-void: 0
   no-console: 1
-  indent:
-    - error
-    - 2
 
 overrides:
   - files: ['tests/**']

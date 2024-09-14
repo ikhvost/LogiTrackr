@@ -1,3 +1,4 @@
 import health from './health'
+import resource from './resource'
 
-export default [...health]
+export default [...health, ...resource]

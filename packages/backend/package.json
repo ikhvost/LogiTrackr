@@ -10,7 +10,7 @@
     "lint": "eslint tests src",
     "format:check": "prettier --check --ignore-unknown .",
     "format:fix": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
-    "test": "vitest run"
+    "test": "vitest run --isolate"
   },
   "dependencies": {
     "ajv": "^8.16.0",
@@ -21,6 +21,7 @@
     "postgres": "^3.4.4"
   },
   "devDependencies": {
+    "builder-pattern": "^2.2.0",
     "drizzle-kit": "^0.24.2",
     "tsx": "^4.15.6"
   }

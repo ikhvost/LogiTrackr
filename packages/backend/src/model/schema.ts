@@ -1,28 +1,20 @@
-import { pgTable, serial, varchar, timestamp, text, integer, json, AnyPgColumn } from 'drizzle-orm/pg-core'
+import { pgTable, varchar, timestamp, json, AnyPgColumn, uuid } from 'drizzle-orm/pg-core'
 
 export const resources = pgTable('resources', {
-  id: serial('id').primaryKey(),
+  id: uuid('id').defaultRandom().primaryKey(),
+  lastVersionId: uuid('version_id').references((): AnyPgColumn => versions.id, { onDelete: 'cascade' }),
+  externalId: varchar('external_id', { length: 36 }).notNull().unique(),
   type: varchar('type', { length: 255 }).notNull(),
-  lastVersionId: integer('version_id').references((): AnyPgColumn => versions.id),
   createdAt: timestamp('created_at').notNull().defaultNow(),
   updatedAt: timestamp('updated_at')
     .notNull()
     .defaultNow()
     .$onUpdate(() => new Date()),
-  deletedAt: timestamp('deleted_at'),
 })
 
 export const versions = pgTable('versions', {
-  id: serial('id').primaryKey(),
-  resourceId: integer('resource_id').references((): AnyPgColumn => resources.id),
+  id: uuid('id').defaultRandom().primaryKey(),
+  resourceId: uuid('resource_id').references((): AnyPgColumn => resources.id, { onDelete: 'cascade' }),
   createdAt: timestamp('created_at').notNull().defaultNow(),
-  changeLog: text('change_log'),
-})
-
-export const changes = pgTable('changes', {
-  id: serial('id').primaryKey(),
-  versionId: integer('version_id').references((): AnyPgColumn => versions.id),
-  createdAt: timestamp('created_at').notNull().defaultNow(),
-  newValue: json('new_value'),
-  oldValue: json('old_value'),
+  data: json('data').notNull(),
 })
