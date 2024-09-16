@@ -4,7 +4,6 @@ import { emit, Hook } from './hooks'
 
 import application from './application'
 import database from './database'
-import config from './config'
 
 export const bootstrapper = async () => {
   const container = new Container({
@@ -12,9 +11,8 @@ export const bootstrapper = async () => {
     autoBindInjectable: true,
   })
 
-  container.load(config)
-  container.load(database)
   container.load(application)
+  container.load(database)
 
   // emit Application bootstrap hook
   await emit(container, Hook.Bootstrap, true)

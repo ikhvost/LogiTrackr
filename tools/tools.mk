@@ -2,9 +2,9 @@ WITH_TOOLS_ENV = set -o allexport; source tools/db.env; set +o allexport;
 TOOLS_COMPOSE = $(WITH_TOOLS_ENV) docker compose -f tools/docker-compose.yml
 
 _ensure_audit_db_connection:
-	@if [ -z "$$AUDIT__DATABASE__CONNECTION" ]; then \
+	@if [ -z "$$DATABASE_CONNECTION" ]; then \
 		$(WITH_TOOLS_ENV) \
-		export AUDIT__DATABASE__CONNECTION="postgresql://$$POSTGRES_USER:$$POSTGRES_PASSWORD@$$POSTGRES_PORT:$$POSTGRES_PORT/$$POSTGRES_DB"; \
+		export DATABASE_CONNECTION="postgresql://$$POSTGRES_USER:$$POSTGRES_PASSWORD@$$POSTGRES_PORT:$$POSTGRES_PORT/$$POSTGRES_DB"; \
 	fi
 
 db@up: ## Start the local database
