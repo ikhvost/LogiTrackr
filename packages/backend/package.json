@@ -9,7 +9,7 @@
     "start": "node ./dist/main.js",
     "lint": "eslint tests src",
     "format:check": "prettier --check --ignore-unknown .",
-    "format:fix": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format:fix": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml}\"",
     "test": "vitest run --isolate"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
   "devDependencies": {
     "builder-pattern": "^2.2.0",
     "drizzle-kit": "^0.24.2",
-    "tsx": "^4.15.6"
+    "tsx": "^4.15.6",
+    "vitest": "^1.6.0"
   }
 }
