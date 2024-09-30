@@ -9,8 +9,8 @@
     "start": "node ./dist/main.js",
     "lint": "eslint tests src",
     "format:check": "prettier --check --ignore-unknown .",
-    "format:fix": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
-    "test": "vitest run --isolate --silent"
+    "format:fix": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml}\"",
+    "test": "vitest run --poolOptions.threads.singleThread --silent"
   },
   "dependencies": {
     "@fastify/env": "^4.4.0",
