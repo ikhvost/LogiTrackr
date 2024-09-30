@@ -42,13 +42,3 @@ rules:
   no-useless-constructor: 0
   no-void: 0
   no-console: 1
-
-overrides:
-  - files: ['tests/**']
-    rules:
-      '@typescript-eslint/no-explicit-any': off
-      '@typescript-eslint/no-unsafe-assignment': off
-      '@typescript-eslint/no-unsafe-call': off
-      '@typescript-eslint/unbound-method': off
-      '@typescript-eslint/no-unsafe-return': off
-      '@typescript-eslint/restrict-template-expressions': off

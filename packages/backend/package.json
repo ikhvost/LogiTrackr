@@ -9,7 +9,7 @@
     "start": "node ./dist/main.js",
     "lint": "eslint tests src",
     "format:check": "prettier --check --ignore-unknown .",
-    "format:fix": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format:fix": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml}\"",
     "test": "vitest run --isolate"
   },
   "dependencies": {
