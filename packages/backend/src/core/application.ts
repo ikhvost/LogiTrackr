@@ -1,18 +1,17 @@
 import fastify, { FastifyInstance } from 'fastify'
+import fastifyEnv from '@fastify/env'
 import { ContainerModule } from 'inversify'
 
 import routing from '../routing'
 import { Hook, HookFn } from './hooks'
-import { Config } from './config'
+import { configSchema } from '../model'
 
 export const Application = Symbol.for('application')
 export type Application = FastifyInstance
 
 export default new ContainerModule((bind) => {
   bind<HookFn>(Hook.Bootstrap).toConstantValue(async (container) => {
-    const app = fastify({
-      logger: true,
-    })
+    const app = fastify({ logger: true }).register(fastifyEnv, { schema: configSchema, dotenv: true })
 
     routing.forEach((route) => app.route(route))
 
@@ -28,8 +27,6 @@ export default new ContainerModule((bind) => {
   })
   bind<HookFn>(Hook.Start).toConstantValue(async (container) => {
     const app = container.get<Application>(Application)
-    const config = container.get<Config>(Config)
-
-    await app.listen({ port: config.app.port })
+    await app.listen({ port: app.config.APP_PORT })
   })
 })

@@ -4,7 +4,7 @@ import { Builder, IBuilder } from 'builder-pattern'
 import { Testing } from '../testing'
 import { ResourcePayload } from '../../src/routing/resource'
 
-import * as schema from '../../src/model/schema'
+import * as schema from '../../src/model/database'
 
 export const ResourcePayloadBuilder = (): IBuilder<ResourcePayload> => Builder<ResourcePayload>()
 

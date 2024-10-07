@@ -4,8 +4,7 @@
   "_version": "20.1.0",
   "compilerOptions": {
     "types": [
-      "node",
-      "ramda"
+      "node"
     ],
     "lib": [
       "es2023"

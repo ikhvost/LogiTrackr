@@ -1,6 +1,6 @@
 import { FastifyRequest, RouteOptions, RouteHandlerMethod, FastifyReply } from 'fastify'
 import { Database } from '../core/database'
-import { versions } from '../model/schema'
+import { versions } from '../model/database'
 import { eq, desc, count as countFn } from 'drizzle-orm'
 
 const endpoints: RouteOptions[] = [
