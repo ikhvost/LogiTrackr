@@ -4,11 +4,11 @@ import { Builder, IBuilder } from 'builder-pattern'
 import { Testing } from '../testing'
 import { ResourcePayload } from '../../src/routing/resource'
 
-import * as schema from '../../src/model/schema'
+import * as schema from '../../src/model/database'
 
 export const ResourcePayloadBuilder = (): IBuilder<ResourcePayload> => Builder<ResourcePayload>()
 
-describe('Integration: API /resource', () => {
+describe('Integration: API /resources', () => {
   let testing: Testing
 
   beforeAll(async () => {
@@ -24,7 +24,7 @@ describe('Integration: API /resource', () => {
 
     const response = await testing.request({
       method: 'POST',
-      path: '/resource',
+      path: '/resources',
       payload,
     })
 
@@ -62,13 +62,13 @@ describe('Integration: API /resource', () => {
     // Create initial resource
     await testing.request({
       method: 'POST',
-      path: '/resource',
+      path: '/resources',
       payload: payload1,
     })
 
     const response = await testing.request({
       method: 'POST',
-      path: '/resource',
+      path: '/resources',
       payload: payload2,
     })
 
@@ -110,7 +110,7 @@ describe('Integration: API /resource', () => {
 
     const response = await testing.request({
       method: 'POST',
-      path: '/resource',
+      path: '/resources',
       payload,
     })
 
@@ -131,7 +131,7 @@ describe('Integration: API /resource', () => {
 
     const response = await testing.request({
       method: 'POST',
-      path: '/resource',
+      path: '/resources',
       payload,
     })
 

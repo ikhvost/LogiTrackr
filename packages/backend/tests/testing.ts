@@ -4,7 +4,7 @@ import { migrate } from 'drizzle-orm/postgres-js/migrator'
 
 import { bootstrapper, Application } from '../src/core'
 import { Database } from '../src/core/database'
-import { resources, versions } from '../src/model/schema'
+import { resources, versions } from '../src/model'
 
 export class Testing {
   constructor(private readonly container: interfaces.Container) {}
