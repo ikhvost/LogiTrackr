@@ -1,0 +1,10 @@
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaVersion: 2022
+  sourceType: module
+  project: ['./tsconfig.json', './tsconfig.spec.json']
+
+overrides:
+  - files: ['**/*.spec.ts']
+    rules:
+      '@typescript-eslint/no-unsafe-member-access': off
