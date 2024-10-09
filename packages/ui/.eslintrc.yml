@@ -5,6 +5,7 @@ parserOptions:
   project: ['./tsconfig.json', './tsconfig.spec.json']
 
 overrides:
-  - files: ['**/*.spec.ts']
+  - files: ['**/*.ts']
     rules:
       '@typescript-eslint/no-unsafe-member-access': off
+      '@typescript-eslint/no-unsafe-return': off

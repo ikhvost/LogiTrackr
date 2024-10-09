@@ -1,5 +1,5 @@
 WITH_TOOLS_ENV = set -o allexport; source tools/db.env; set +o allexport;
-TOOLS_COMPOSE = $(WITH_TOOLS_ENV) docker compose -f tools/docker-compose.yml
+TOOLS_COMPOSE = $(WITH_TOOLS_ENV) docker-compose -f tools/docker-compose.yml
 
 _ensure_audit_db_connection:
 	@if [ -z "$$DATABASE_CONNECTION" ]; then \

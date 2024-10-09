@@ -13,6 +13,7 @@
     "test": "vitest run --poolOptions.threads.singleThread --silent"
   },
   "dependencies": {
+    "@fastify/cors": "^10.0.1",
     "@fastify/env": "^4.4.0",
     "ajv": "^8.16.0",
     "drizzle-orm": "0.33.0",

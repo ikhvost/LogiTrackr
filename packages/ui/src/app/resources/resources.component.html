@@ -1,0 +1,8 @@
+<div class="resources-page h-screen p-4">
+    <p-card styleClass="h-full">
+        <div class="flex flex-col items-center justify-center h-full">
+            <app-resources-search (search)="onSearch($event)" class="w-full mb-6"></app-resources-search>
+            <app-resources-table [resources]="resources" [totalCount]="totalCount" [page]="page" [pageSize]="pageSize" (pageChange)="onPageChange($event)" class="w-full mb-6"></app-resources-table>
+        </div>
+    </p-card>
+</div>
