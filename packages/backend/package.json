@@ -23,6 +23,7 @@
   "devDependencies": {
     "builder-pattern": "^2.2.0",
     "drizzle-kit": "^0.24.2",
-    "tsx": "^4.15.6"
+    "tsx": "^4.15.6",
+    "vitest": "^1.6.0"
   }
 }
