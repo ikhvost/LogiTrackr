@@ -54,3 +54,11 @@ db@dashboard: _ensure_audit_db_connection
 db@dashboard:
 	@cd packages/backend && \
 		./node_modules/.bin/drizzle-kit studio --config=./src/orm.ts
+
+db@seed: ## Seed database
+db@seed: TOOLS=node
+db@seed: _assert_tools
+db@seed: _ensure_audit_db_connection
+db@seed:
+	@cd packages/backend && \
+		./node_modules/.bin/tsx ./tests/seed.ts
