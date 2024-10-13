@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Log</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body class="text-gray-800 antialiased">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <!-- Search Section -->
+        <div class="search-container rounded-3xl shadow-lg mb-12 p-10">
+            <h1 class="text-4xl font-bold text-white mb-8">Advanced Audit Log</h1>
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
+                <input id="searchInput" type="text" placeholder="Search by ID or type..."
+                    class="w-full md:w-3/4 p-4 rounded-full border-0 focus:ring-2 focus:ring-indigo-300 transition text-gray-700 text-lg" />
+                <button id="searchButton"
+                    class="btn-primary w-full md:w-auto px-10 py-4 rounded-full text-white text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out">
+                    Search
+                </button>
+            </div>
+        </div>
+
+        <!-- Table Section -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="table-header">
+                    <tr>
+                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider">ID
+                        </th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider">
+                            Type</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider">
+                            Last Updated</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider">
+                            Version</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody" class="divide-y divide-gray-200">
+                    <!-- Dynamic content will be injected here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination Section -->
+        <div class="flex justify-between items-center mt-8">
+            <p id="entriesInfo" class="text-sm text-gray-500"></p>
+            <div class="flex space-x-2 items-center">
+                <button id="prevPage"
+                    class="text-gray-600 px-4 py-2 rounded-lg bg-white hover:bg-gray-50 disabled:opacity-50 transition-all shadow-sm"
+                    disabled>«</button>
+                <div id="pageNumbers" class="text-sm text-gray-600"></div>
+                <button id="nextPage"
+                    class="text-gray-600 px-4 py-2 rounded-lg bg-white hover:bg-gray-50 disabled:opacity-50 transition-all shadow-sm"
+                    disabled>»</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="scripts/main.ts"></script>
+</body>
+
+</html>
