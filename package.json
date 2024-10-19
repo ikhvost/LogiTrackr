@@ -28,5 +28,10 @@
   },
   "engines": {
     "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "i18next": "^23.16.1",
+    "i18next-browser-languagedetector": "^8.0.0",
+    "react-i18next": "^15.0.3"
   }
 }
