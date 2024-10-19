@@ -23,10 +23,8 @@ describe('Integration: API /resources/:id/versions', () => {
     const payload1 = ResourcePayloadBuilder().id('test-resource-id').type('test-type').data({ version: 1 }).build()
     const payload2 = ResourcePayloadBuilder().id('test-resource-id').type('test-type').data({ version: 2 }).build()
 
-    await Promise.all([
-      testing.request({ method: 'POST', path: '/resources', payload: payload1 }),
-      testing.request({ method: 'POST', path: '/resources', payload: payload2 }),
-    ])
+    await testing.request({ method: 'POST', path: '/resources', payload: payload1 })
+    await testing.request({ method: 'POST', path: '/resources', payload: payload2 })
 
     const [resource] = await testing.db.select().from(schema.resources).limit(1)
     const response = await testing.request({
