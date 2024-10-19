@@ -26,19 +26,15 @@ const endpoints: RouteOptions[] = [
     handler: (async (
       {
         params,
-        query,
+        query: { page, size },
         container,
       }: FastifyRequest<{
         Params: { resourceId: string }
-        Querystring: { page?: number; size?: number }
+        Querystring: { page: number; size: number }
       }>,
       reply: FastifyReply,
     ) => {
       const db = container.get<Database>(Database)
-
-      const page = query.page || 1
-      const size = query.size || 20
-      const offset = (page - 1) * size
 
       const [{ count }] = await db
         .select({ count: countFn() })
@@ -50,12 +46,13 @@ const endpoints: RouteOptions[] = [
           id: versions.id,
           createdAt: versions.createdAt,
           data: versions.data,
+          revision: versions.revision,
         })
         .from(versions)
         .where(eq(versions.resourceId, params.resourceId))
         .orderBy(desc(versions.createdAt))
         .limit(size)
-        .offset(offset)
+        .offset((page - 1) * size)
 
       const totalPages = Math.ceil(count / size)
 
