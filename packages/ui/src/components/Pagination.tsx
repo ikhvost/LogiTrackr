@@ -1,4 +1,4 @@
-import { Metadata } from '@saas-versioning/contracts'
+import { Metadata } from '@logitrackr/contracts'
 
 interface Props {
   metadata: Metadata

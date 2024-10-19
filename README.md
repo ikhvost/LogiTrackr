@@ -1,4 +1,4 @@
-# Audit Log Application
+# LogiTrackr Application
 
 <p align="center">
   <img src="./assets/audit-log-logo.webp" alt="Audit Log Logo" width="200">
@@ -64,7 +64,7 @@ For a full list of available commands, run `make help`.
 
 ## Contributing
 
-We welcome contributions from the community! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request on our [GitHub repository](https://github.com/ikhvost/saas-versioning).
+We welcome contributions from the community! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request on our [GitHub repository](https://github.com/ikhvost/logitrackr).
 
 ## License
 

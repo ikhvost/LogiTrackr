@@ -1,4 +1,4 @@
-import { SearchQuery, searchQuerySchema, searchResponseSchema } from '@saas-versioning/contracts'
+import { SearchQuery, searchQuerySchema, searchResponseSchema } from '@logitrackr/contracts'
 import { FastifyRequest, RouteOptions, RouteHandlerMethod, FastifyReply } from 'fastify'
 import { eq, desc, count as countFn, or, ilike, and } from 'drizzle-orm'
 import { Database } from '../core/database'

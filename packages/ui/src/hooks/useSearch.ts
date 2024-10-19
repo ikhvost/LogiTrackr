@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Metadata, Paginated, SearchResponse as Record } from '@saas-versioning/contracts'
+import { Metadata, Paginated, SearchResponse as Record } from '@logitrackr/contracts'
 import { fetcher } from '../utils'
 
 export function useSearch(query: string, page: number, pageSize: number) {
