@@ -11,8 +11,8 @@ vi.mock('react-router-dom')
 describe('<Versions />', () => {
   const mockMetadata = { totalCount: 2, totalPages: 1, currentPage: 1 }
   const mockRevisions = [
-    { id: 'test-id-1', revision: 1, createdAt: '2023-01-01T00:00:00Z', data: {} },
-    { id: 'test-id-2', revision: 2, createdAt: '2023-01-02T00:00:00Z', data: {} },
+    { id: 'test-id-1', revision: 1, createdAt: '2023-01-01T12:00:00Z', data: {} },
+    { id: 'test-id-2', revision: 2, createdAt: '2023-01-02T12:00:00Z', data: {} },
   ]
 
   beforeEach(() => {

@@ -16,7 +16,7 @@ export const Resources = () => {
       {
         header: 'Last Updated',
         accessor: 'updatedAt' as keyof Record,
-        render: (record: Record) => new Date(record.updatedAt).toLocaleString(),
+        render: (record: Record) => new Date(record.updatedAt).toLocaleString('en-US', { timeZone: 'UTC' }),
       },
       {
         header: 'Version',

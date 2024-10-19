@@ -1,0 +1,17 @@
+name: Dependabot
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    package-manager: "pnpm"
+    versioning-strategy: "increase"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "ikhvost"
+      - "maciejtrybula"
+    labels:
+      - "dependencies"

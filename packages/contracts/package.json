@@ -8,6 +8,8 @@
     "clean": "rimraf dist",
     "build": "pnpm clean && tsc",
     "lint": "eslint src/{,**/}*.ts",
+    "format:check": "prettier --check --ignore-unknown .",
+    "format:fix": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml}\"",
     "test": "echo 'No tests for contracts'"
   },
   "devDependencies": {

@@ -15,7 +15,7 @@ export const Versions: React.FC<Props> = ({ externalId }) => {
       {
         header: 'Created At',
         accessor: 'createdAt' as keyof Version,
-        render: (revision: Version) => new Date(revision.createdAt).toLocaleString(),
+        render: (revision: Version) => new Date(revision.createdAt).toLocaleString('en-US', { timeZone: 'UTC' }),
       },
       { header: 'Revision', accessor: 'revision' as keyof Version },
     ],

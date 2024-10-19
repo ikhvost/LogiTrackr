@@ -82,7 +82,7 @@ exports[`<Versions /> > rendering: component renders without crashing 1`] = `
             <td
               class="px-6 py-4 whitespace-nowrap"
             >
-              1/1/2023, 1:00:00 AM
+              1/1/2023, 12:00:00 PM
             </td>
             <td
               class="px-6 py-4 whitespace-nowrap"
@@ -101,7 +101,7 @@ exports[`<Versions /> > rendering: component renders without crashing 1`] = `
             <td
               class="px-6 py-4 whitespace-nowrap"
             >
-              1/2/2023, 1:00:00 AM
+              1/2/2023, 12:00:00 PM
             </td>
             <td
               class="px-6 py-4 whitespace-nowrap"

@@ -8,7 +8,7 @@ import * as schema from '../../src/model/database'
 
 export const ResourcePayloadBuilder = (): IBuilder<ResourcePayload> => Builder<ResourcePayload>()
 
-describe('Integration: API /resources/:resourceId/versions', () => {
+describe('Integration: API /resources/:id/versions', () => {
   let testing: Testing
 
   beforeAll(async () => {

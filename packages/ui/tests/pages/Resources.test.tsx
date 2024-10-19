@@ -15,17 +15,17 @@ describe('<Resources />', () => {
       id: '1',
       externalId: 'ext1',
       type: 'user',
-      createdAt: '2023-01-01T00:00:00Z',
-      updatedAt: '2023-01-01T00:00:00Z',
-      lastVersion: { revision: 1, createdAt: '2023-01-01T00:00:00Z', data: {}, id: '1' },
+      createdAt: '2023-01-01T12:00:00Z',
+      updatedAt: '2023-01-01T12:00:00Z',
+      lastVersion: { revision: 1, createdAt: '2023-01-01T12:00:00Z', data: {}, id: '1' },
     },
     {
       id: '2',
       externalId: 'ext2',
       type: 'post',
-      createdAt: '2023-01-02T00:00:00Z',
-      updatedAt: '2023-01-02T00:00:00Z',
-      lastVersion: { revision: 2, createdAt: '2023-01-02T00:00:00Z', data: {}, id: '2' },
+      createdAt: '2023-01-02T12:00:00Z',
+      updatedAt: '2023-01-02T12:00:00Z',
+      lastVersion: { revision: 2, createdAt: '2023-01-02T12:00:00Z', data: {}, id: '2' },
     },
   ]
 
