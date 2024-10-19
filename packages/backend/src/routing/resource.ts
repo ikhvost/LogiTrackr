@@ -1,42 +1,15 @@
+import { ResourcePayload, resourcePayloadSchema } from '@saas-versioning/contracts'
 import { FastifyRequest, RouteOptions, RouteHandlerMethod, FastifyReply } from 'fastify'
+import { eq } from 'drizzle-orm'
 import { Database } from '../core/database'
 import { resources, versions } from '../model'
-import { eq } from 'drizzle-orm'
-
-export interface ResourcePayload {
-  id: string
-  type: string
-  data: Record<string, unknown>
-}
 
 const endpoints: RouteOptions[] = [
   {
     url: '/resources',
     method: 'POST',
     bodyLimit: 1048576, // limits the overall size of the JSON to 1MB
-    schema: {
-      body: {
-        type: 'object',
-        properties: {
-          id: {
-            type: 'string',
-            minLength: 1,
-            maxLength: 36,
-          },
-          type: {
-            type: 'string',
-            minLength: 1,
-            maxLength: 50,
-          },
-          data: {
-            type: 'object',
-            additionalProperties: true,
-          },
-        },
-        required: ['id', 'type', 'data'],
-        additionalProperties: false,
-      },
-    },
+    schema: { body: resourcePayloadSchema },
     handler: (async ({ container, body }: FastifyRequest<{ Body: ResourcePayload }>, reply: FastifyReply) => {
       const db = container.get<Database>(Database)
 

@@ -1,5 +1,6 @@
 import fastify, { FastifyInstance } from 'fastify'
 import fastifyEnv from '@fastify/env'
+import fastifyCors from '@fastify/cors'
 import { ContainerModule } from 'inversify'
 
 import routing from '../routing'
@@ -11,7 +12,9 @@ export type Application = FastifyInstance
 
 export default new ContainerModule((bind) => {
   bind<HookFn>(Hook.Bootstrap).toConstantValue(async (container) => {
-    const app = fastify({ logger: true }).register(fastifyEnv, { schema: configSchema, dotenv: true })
+    const app = fastify({ logger: true })
+      .register(fastifyEnv, { schema: configSchema, dotenv: true })
+      .register(fastifyCors)
 
     routing.forEach((route) => app.route(route))
 

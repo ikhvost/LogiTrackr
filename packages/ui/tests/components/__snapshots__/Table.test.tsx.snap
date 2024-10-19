@@ -1,0 +1,76 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Table /> > rendering: component renders without crashing 1`] = `
+<div>
+  <table
+    class="min-w-full divide-y divide-gray-200"
+  >
+    <thead
+      class="bg-gray-50"
+    >
+      <tr>
+        <th
+          class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+          scope="col"
+        >
+          ID
+        </th>
+        <th
+          class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+          scope="col"
+        >
+          Name
+        </th>
+        <th
+          class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+          scope="col"
+        >
+          Age
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      class="bg-white divide-y divide-gray-200"
+    >
+      <tr
+        class="cursor-pointer hover:bg-gray-100 "
+      >
+        <td
+          class="px-6 py-4 whitespace-nowrap"
+        >
+          1
+        </td>
+        <td
+          class="px-6 py-4 whitespace-nowrap"
+        >
+          John Doe
+        </td>
+        <td
+          class="px-6 py-4 whitespace-nowrap"
+        >
+          30
+        </td>
+      </tr>
+      <tr
+        class="cursor-pointer hover:bg-gray-100 "
+      >
+        <td
+          class="px-6 py-4 whitespace-nowrap"
+        >
+          2
+        </td>
+        <td
+          class="px-6 py-4 whitespace-nowrap"
+        >
+          Jane Smith
+        </td>
+        <td
+          class="px-6 py-4 whitespace-nowrap"
+        >
+          25
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

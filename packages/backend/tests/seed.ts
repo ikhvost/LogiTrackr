@@ -26,7 +26,7 @@ const seedDatabase = async (): Promise<void> => {
         id: faker.string.uuid(),
         resourceId: resource.id,
         revision: index + 1,
-        data: generateFakeData(resource.type as string),
+        data: generateFakeData(resource.type),
         createdAt: faker.date.between({ from: resource.createdAt, to: resource.updatedAt }),
       }))
       return revisions
@@ -40,7 +40,7 @@ const seedDatabase = async (): Promise<void> => {
     await testing.db
       .update(schema.resources)
       .set({ lastVersionId: version.id })
-      .where(eq(schema.resources.id, version.resourceId as string))
+      .where(eq(schema.resources.id, version.resourceId))
   }
 }
 

@@ -13,11 +13,12 @@
     "test": "vitest run --poolOptions.threads.singleThread --silent"
   },
   "dependencies": {
+    "@saas-versioning/contracts": "workspace:*",
     "@fastify/cors": "^10.0.1",
-    "@fastify/env": "^4.4.0",
+    "@fastify/env": "^5.0.1",
     "ajv": "^8.16.0",
     "drizzle-orm": "0.33.0",
-    "fastify": "^4.28.0",
+    "fastify": "^5.0.0",
     "inversify": "^6.0.2",
     "postgres": "^3.4.4"
   },
@@ -25,7 +26,6 @@
     "@faker-js/faker": "^9.0.3",
     "builder-pattern": "^2.2.0",
     "drizzle-kit": "^0.24.2",
-    "tsx": "^4.15.6",
-    "vitest": "^1.6.0"
+    "tsx": "^4.15.6"
   }
 }

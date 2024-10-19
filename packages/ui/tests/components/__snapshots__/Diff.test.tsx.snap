@@ -1,0 +1,88 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Diff /> > rendering: component renders without crashing 1`] = `
+<div>
+  <div
+    class="flex"
+  >
+    <div
+      class="w-1/2 pr-2"
+    >
+      <h4
+        class="text-md font-semibold mb-1"
+      >
+        Previous Version
+      </h4>
+      <pre
+        class="whitespace-pre-wrap bg-white p-2 rounded text-sm"
+      >
+        <div
+          class=""
+        >
+          {
+        </div>
+        <div
+          class=""
+        />
+        <div
+          class="bg-red-100 text-red-800"
+        >
+            "age": 30,
+        </div>
+        <div
+          class="bg-red-100 text-red-800"
+        />
+        <div
+          class=""
+        >
+            "name": "John"
+        </div>
+        <div
+          class=""
+        >
+          }
+        </div>
+      </pre>
+    </div>
+    <div
+      class="w-1/2 pl-2"
+    >
+      <h4
+        class="text-md font-semibold mb-1"
+      >
+        Current Version
+      </h4>
+      <pre
+        class="whitespace-pre-wrap bg-white p-2 rounded text-sm"
+      >
+        <div
+          class=""
+        >
+          {
+        </div>
+        <div
+          class=""
+        />
+        <div
+          class="bg-green-100 text-green-800"
+        >
+            "age": 31,
+        </div>
+        <div
+          class="bg-green-100 text-green-800"
+        />
+        <div
+          class=""
+        >
+            "name": "John"
+        </div>
+        <div
+          class=""
+        >
+          }
+        </div>
+      </pre>
+    </div>
+  </div>
+</div>
+`;

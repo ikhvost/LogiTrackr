@@ -1,8 +1,8 @@
 import { beforeAll, afterEach, describe, expect, test } from 'vitest'
 import { Builder, IBuilder } from 'builder-pattern'
+import { ResourcePayload } from '@saas-versioning/contracts'
 
 import { Testing } from '../testing'
-import { ResourcePayload } from '../../src/routing/resource'
 
 import * as schema from '../../src/model/database'
 
@@ -36,7 +36,7 @@ describe('Integration: API /resources/:resourceId/versions', () => {
 
     expect(response.statusCode).toEqual(200)
     expect(response.json()).toEqual({
-      versions: [
+      data: [
         {
           createdAt: expect.any(String),
           id: expect.any(String),
@@ -83,7 +83,7 @@ describe('Integration: API /resources/:resourceId/versions', () => {
         totalCount: 25,
         totalPages: 3,
       },
-      versions: [
+      data: [
         {
           data: { version: 15 },
           createdAt: expect.any(String),
@@ -156,7 +156,7 @@ describe('Integration: API /resources/:resourceId/versions', () => {
 
     expect(response.statusCode).toEqual(200)
     expect(response.json()).toEqual({
-      versions: [],
+      data: [],
       metadata: {
         totalCount: 0,
         currentPage: 1,
@@ -175,7 +175,7 @@ describe('Integration: API /resources/:resourceId/versions', () => {
     expect(response.json()).toEqual({
       code: 'FST_ERR_VALIDATION',
       error: 'Bad Request',
-      message: 'params/resourceId must match format "uuid"',
+      message: 'params/id must match format "uuid"',
       statusCode: 400,
     })
   })

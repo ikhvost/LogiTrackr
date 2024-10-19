@@ -1,27 +1,23 @@
+import {
+  paginationQuerySchema,
+  idSchema,
+  PaginationQuery,
+  Identifiable,
+  versionListSchema,
+} from '@saas-versioning/contracts'
 import { FastifyRequest, RouteOptions, RouteHandlerMethod, FastifyReply } from 'fastify'
+import { eq, desc, count as countFn } from 'drizzle-orm'
 import { Database } from '../core/database'
 import { versions } from '../model/database'
-import { eq, desc, count as countFn } from 'drizzle-orm'
 
 const endpoints: RouteOptions[] = [
   {
-    url: '/resources/:resourceId/versions',
+    url: '/resources/:id/versions',
     method: 'GET',
     schema: {
-      querystring: {
-        type: 'object',
-        properties: {
-          page: { type: 'integer', minimum: 1, default: 1 },
-          size: { type: 'integer', minimum: 1, maximum: 100, default: 20 },
-        },
-      },
-      params: {
-        type: 'object',
-        properties: {
-          resourceId: { type: 'string', format: 'uuid' },
-        },
-        required: ['resourceId'],
-      },
+      querystring: paginationQuerySchema,
+      params: idSchema,
+      response: { 200: versionListSchema },
     },
     handler: (async (
       {
@@ -29,17 +25,14 @@ const endpoints: RouteOptions[] = [
         query: { page, size },
         container,
       }: FastifyRequest<{
-        Params: { resourceId: string }
-        Querystring: { page: number; size: number }
+        Params: Identifiable
+        Querystring: PaginationQuery
       }>,
       reply: FastifyReply,
     ) => {
       const db = container.get<Database>(Database)
 
-      const [{ count }] = await db
-        .select({ count: countFn() })
-        .from(versions)
-        .where(eq(versions.resourceId, params.resourceId))
+      const [{ count }] = await db.select({ count: countFn() }).from(versions).where(eq(versions.resourceId, params.id))
 
       const result = await db
         .select({
@@ -49,15 +42,15 @@ const endpoints: RouteOptions[] = [
           revision: versions.revision,
         })
         .from(versions)
-        .where(eq(versions.resourceId, params.resourceId))
-        .orderBy(desc(versions.createdAt))
+        .where(eq(versions.resourceId, params.id))
+        .orderBy(desc(versions.revision))
         .limit(size)
         .offset((page - 1) * size)
 
       const totalPages = Math.ceil(count / size)
 
       return reply.status(200).send({
-        versions: result,
+        data: result,
         metadata: {
           totalCount: count,
           currentPage: page,

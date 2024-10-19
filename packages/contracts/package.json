@@ -1,0 +1,16 @@
+{
+  "name": "@saas-versioning/contracts",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "main": "dist/index.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "pnpm clean && tsc",
+    "lint": "eslint src/{,**/}*.ts",
+    "test": "echo 'No tests for contracts'"
+  },
+  "devDependencies": {
+    "ajv": "^8.16.0"
+  }
+}
