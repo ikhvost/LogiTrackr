@@ -13,6 +13,6 @@
     "test": "echo 'No tests for contracts'"
   },
   "devDependencies": {
-    "ajv": "^8.16.0"
+    "ajv": "^8.17.1"
   }
 }
