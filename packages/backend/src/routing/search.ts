@@ -1,28 +1,23 @@
+import { SearchQuery, searchQuerySchema, searchResponseSchema } from '@saas-versioning/contracts'
 import { FastifyRequest, RouteOptions, RouteHandlerMethod, FastifyReply } from 'fastify'
+import { eq, desc, count as countFn, or, ilike, and } from 'drizzle-orm'
 import { Database } from '../core/database'
 import { resources, versions } from '../model/database'
-import { eq, desc, count as countFn, or, ilike, and } from 'drizzle-orm'
 
 const endpoints: RouteOptions[] = [
   {
     url: '/search',
     method: 'GET',
     schema: {
-      querystring: {
-        type: 'object',
-        properties: {
-          q: { type: 'string', default: '' },
-          page: { type: 'integer', minimum: 1, default: 1 },
-          size: { type: 'integer', minimum: 1, maximum: 100, default: 20 },
-        },
-      },
+      querystring: searchQuerySchema,
+      response: { 200: searchResponseSchema },
     },
     handler: (async (
       {
         query: { q: search, page, size },
         container,
       }: FastifyRequest<{
-        Querystring: { q: string; page: number; size: number }
+        Querystring: SearchQuery
       }>,
       reply: FastifyReply,
     ) => {
@@ -61,7 +56,7 @@ const endpoints: RouteOptions[] = [
       const totalPages = Math.ceil(count / size)
 
       return reply.status(200).send({
-        resources: result,
+        data: result,
         metadata: {
           totalCount: count,
           currentPage: page,

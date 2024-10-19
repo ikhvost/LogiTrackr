@@ -1,15 +1,14 @@
-name: Dependabot
+version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/"
+    versioning-strategy: "increase"
+    open-pull-requests-limit: 5
     schedule:
       interval: "weekly"
-    package-manager: "pnpm"
-    versioning-strategy: "increase"
     commit-message:
       prefix: "chore"
       include: "scope"
-    open-pull-requests-limit: 10
     reviewers:
       - "ikhvost"
       - "maciejtrybula"

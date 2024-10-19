@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
+import { eq } from 'drizzle-orm'
 import * as schema from '../../src/model/database'
 import { Testing } from '../testing'
-import { eq } from 'drizzle-orm'
 
 describe('Integration: API /search', () => {
   let testing: Testing
@@ -111,7 +111,7 @@ describe('Integration: API /search', () => {
 
     expect(response.statusCode).toEqual(200)
     expect(response.json()).toEqual({
-      resources: [
+      data: [
         {
           id: 'bf292643-c4d6-4792-b2a9-9c812e667800',
           externalId: 'ext5',
@@ -204,7 +204,7 @@ describe('Integration: API /search', () => {
 
     expect(response.statusCode).toEqual(200)
     expect(response.json()).toEqual({
-      resources: [
+      data: [
         {
           id: '974402b1-ebaf-41b0-8574-f63a97964fc0',
           externalId: 'ext2',
@@ -237,7 +237,7 @@ describe('Integration: API /search', () => {
 
     expect(response.statusCode).toEqual(200)
     expect(response.json()).toEqual({
-      resources: [
+      data: [
         {
           id: '7493625a-4f56-4a77-956d-5e7916abf651',
           externalId: 'ext3',
@@ -285,7 +285,7 @@ describe('Integration: API /search', () => {
 
     expect(response.statusCode).toEqual(200)
     expect(response.json()).toEqual({
-      resources: [
+      data: [
         {
           id: 'bf292643-c4d6-4792-b2a9-9c812e667800',
           externalId: 'ext5',
@@ -333,7 +333,7 @@ describe('Integration: API /search', () => {
 
     expect(response.statusCode).toEqual(200)
     expect(response.json()).toEqual({
-      resources: [],
+      data: [],
       metadata: {
         totalCount: 0,
         currentPage: 1,
@@ -362,9 +362,9 @@ describe('Integration: API /search', () => {
     const body2 = response2.json()
     const body3 = response3.json()
 
-    expect(body1.resources).toHaveLength(2)
-    expect(body2.resources).toHaveLength(2)
-    expect(body3.resources).toHaveLength(1)
+    expect(body1.data).toHaveLength(2)
+    expect(body2.data).toHaveLength(2)
+    expect(body3.data).toHaveLength(1)
 
     expect(body1.metadata.currentPage).toEqual(1)
     expect(body2.metadata.currentPage).toEqual(2)

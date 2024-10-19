@@ -54,3 +54,36 @@ db@dashboard: _ensure_audit_db_connection
 db@dashboard:
 	@cd packages/backend && \
 		./node_modules/.bin/drizzle-kit studio --config=./src/orm.ts
+
+db@seed: ## Seed database
+db@seed: TOOLS=node
+db@seed: _assert_tools
+db@seed: _ensure_audit_db_connection
+db@seed:
+	@cd packages/backend && \
+		./node_modules/.bin/tsx ./tests/seed.ts
+
+dev@db: ## Setup test database with migrations and seed data
+dev@db: TOOLS=node
+dev@db: _assert_tools
+dev@db: _ensure_audit_db_connection
+dev@db:
+	@$(MAKE) db@up
+	@echo "Waiting for database to be ready..."
+	@sleep 5
+	@$(MAKE) db@migrate
+	@$(MAKE) db@seed
+
+dev@backend: ## Start the backend
+dev@backend: TOOLS=node
+dev@backend: _assert_tools
+dev@backend:
+	@cd packages/backend && \
+		pnpm run watch
+
+dev@ui: ## Start the frontend
+dev@ui: TOOLS=node
+dev@ui: _assert_tools
+dev@ui:
+	@cd packages/ui && \
+		pnpm run watch

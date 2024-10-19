@@ -1,8 +1,8 @@
 import { beforeAll, afterEach, describe, expect, test } from 'vitest'
 import { Builder, IBuilder } from 'builder-pattern'
+import { ResourcePayload } from '@saas-versioning/contracts'
 
 import { Testing } from '../testing'
-import { ResourcePayload } from '../../src/routing/resource'
 
 import * as schema from '../../src/model/database'
 

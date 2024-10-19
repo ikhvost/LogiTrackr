@@ -16,6 +16,6 @@ export const versions = pgTable('versions', {
   id: uuid('id').defaultRandom().primaryKey(),
   resourceId: uuid('resource_id').references((): AnyPgColumn => resources.id, { onDelete: 'cascade' }),
   createdAt: timestamp('created_at').notNull().defaultNow(),
-  revision: integer('revision').notNull().unique(),
+  revision: integer('revision').notNull(),
   data: json('data').notNull(),
 })
