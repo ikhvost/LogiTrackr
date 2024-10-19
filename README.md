@@ -1,34 +1,71 @@
-# saas-versioning
+# Audit Log Application
 
-## API Design
-The API acts as the interface through which users and systems interact with versioning service.
+<p align="center">
+  <img src="./assets/audit-log-logo.webp" alt="Audit Log Logo" width="200">
+</p>
 
-### Core API Endpoints:
-#### Version Management
+A powerful and flexible audit logging system for tracking changes and maintaining version history across your applications.
 
-* POST /resources/{resourceId} to create a new version of a resource.
-* GET /resources/{resourceId} to list versions of a resource.
-* GET /resources/{resourceId}/versions/{versionId} to retrieve a specific version of a resource.
+## Features
 
-#### Search and Filter
-* GET /search with query parameters for filtering and searching through versions based on criteria like type, dates, etc.
+- 🔍 Comprehensive version tracking
+- 🔄 Efficient diff and comparison tools
+- 🔎 Search and filtering capabilities
+- 🔐 Secure and scalable architecture
+- 🚀 Easy integration with existing systems
 
-#### Comparison and Diff
+## Interface
 
-* GET /resources/{resourceId}/compare?baseVersion={v1}&targetVersion={v2} to compare two versions of a resource.
+### Dashboard
+![Dashboard](./assets/dashboard.png)
 
-### Database Design
-![alt database design](./assets/database_design.png)
+### Version Comparison
+![Version Comparison](./assets/version-comparison.png)
 
-#### Core Database Tables/Entities:
-##### Resources
-* Primary information about the resources being versioned.
-* Columns: ResourceID, ResourceType, CurrentVersionID, CreatedAt, UpdatedAt, DeletedAt
+## Development
 
-##### Versions
-* Stores each version of a resource.
-* Columns: VersionID, ResourceID, CreatedAt, ChangeLog
+To get started with development, follow these steps:
 
-##### Changes (if tracking detailed changes within versions)
-* Stores detailed changes for each version. This can be normalized or denormalized depending on your needs.
-* Columns: ChangeID, VersionID, OldValue, NewValue
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+3. Set up the development database:
+   ```bash
+   make dev@db
+   ```
+4. Start the backend:
+   ```bash
+   make dev@backend
+   ```
+5. Start the frontend:
+   ```bash
+   make dev@ui
+   ```
+
+### Available Commands
+
+Our `tools.mk` file provides several useful commands to manage the development environment:
+
+- `make db@up`: Start the local database
+- `make db@stop`: Stop the local database
+- `make db@down`: Remove the local database
+- `make db@logs`: Show logs from the local database
+- `make db@generate`: Generate new migration file
+- `make db@migrate`: Migrate database
+- `make db@dashboard`: Open Drizzle-kit Studio
+- `make db@seed`: Seed database
+- `make dev@db`: Setup test database with migrations and seed data
+- `make dev@backend`: Start the backend
+- `make dev@ui`: Start the frontend
+
+For a full list of available commands, run `make help`.
+
+## Contributing
+
+We welcome contributions from the community! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request on our [GitHub repository](https://github.com/ikhvost/saas-versioning).
+
+## License
+
+This library is licensed under the [MIT License](https://opensource.org/licenses/MIT). See the [LICENSE](./LICENSE) file for more details.
