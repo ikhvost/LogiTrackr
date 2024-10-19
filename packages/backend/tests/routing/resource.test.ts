@@ -51,6 +51,7 @@ describe('Integration: API /resources', () => {
         createdAt: expect.any(Date),
         resourceId: resources[0].id,
         data: payload.data,
+        revision: 1,
       },
     ])
   })
@@ -95,12 +96,14 @@ describe('Integration: API /resources', () => {
         createdAt: expect.any(Date),
         resourceId: resources[0].id,
         data: payload1.data,
+        revision: 1,
       },
       {
         id: expect.any(String),
         createdAt: expect.any(Date),
         resourceId: resources[0].id,
         data: payload2.data,
+        revision: 2,
       },
     ])
   })

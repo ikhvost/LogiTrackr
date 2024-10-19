@@ -42,9 +42,22 @@ const endpoints: RouteOptions[] = [
 
       return db
         .transaction(async (tx) => {
-          const [version] = await tx.insert(versions).values({ data: body.data }).returning()
-          const [exists] = await tx.select().from(resources).where(eq(resources.externalId, body.id)).limit(1)
-          const [resource] = exists
+          const [exists] = await tx
+            .select({ resource: resources, version: versions })
+            .from(resources)
+            .leftJoin(versions, eq(resources.lastVersionId, versions.id))
+            .where(eq(resources.externalId, body.id))
+            .limit(1)
+
+          const [version] = await tx
+            .insert(versions)
+            .values({
+              data: body.data,
+              revision: exists?.version?.revision ? exists.version.revision + 1 : 1,
+            })
+            .returning()
+
+          const [resource] = exists?.resource
             ? await tx
                 .update(resources)
                 .set({ lastVersionId: version.id })

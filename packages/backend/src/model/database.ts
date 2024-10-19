@@ -1,4 +1,4 @@
-import { pgTable, varchar, timestamp, json, AnyPgColumn, uuid } from 'drizzle-orm/pg-core'
+import { pgTable, varchar, timestamp, json, AnyPgColumn, uuid, integer } from 'drizzle-orm/pg-core'
 
 export const resources = pgTable('resources', {
   id: uuid('id').defaultRandom().primaryKey(),
@@ -16,5 +16,6 @@ export const versions = pgTable('versions', {
   id: uuid('id').defaultRandom().primaryKey(),
   resourceId: uuid('resource_id').references((): AnyPgColumn => resources.id, { onDelete: 'cascade' }),
   createdAt: timestamp('created_at').notNull().defaultNow(),
+  revision: integer('revision').notNull().unique(),
   data: json('data').notNull(),
 })
