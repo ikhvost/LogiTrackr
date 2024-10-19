@@ -65,7 +65,7 @@ importers:
       '@fastify/env':
         specifier: ^5.0.1
         version: 5.0.1
-      '@saas-versioning/contracts':
+      '@logitrackr/contracts':
         specifier: workspace:*
         version: link:../contracts
       ajv:
@@ -118,7 +118,7 @@ importers:
         specifier: ^6.27.0
         version: 6.27.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
-      '@saas-versioning/contracts':
+      '@logitrackr/contracts':
         specifier: workspace:*
         version: link:../contracts
       '@testing-library/jest-dom':

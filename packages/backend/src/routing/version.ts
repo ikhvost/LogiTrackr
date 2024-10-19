@@ -4,7 +4,7 @@ import {
   PaginationQuery,
   Identifiable,
   versionListSchema,
-} from '@saas-versioning/contracts'
+} from '@logitrackr/contracts'
 import { FastifyRequest, RouteOptions, RouteHandlerMethod, FastifyReply } from 'fastify'
 import { eq, desc, count as countFn } from 'drizzle-orm'
 import { Database } from '../core/database'
