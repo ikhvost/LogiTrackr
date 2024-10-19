@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { Version } from '@saas-versioning/contracts'
+import { Version } from '@logitrackr/contracts'
 import { Table, Pagination, Diff, BackButton } from '../components'
 import { useRevisions } from '../hooks/useRevisions'
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Metadata, Paginated, Version } from '@saas-versioning/contracts'
+import { Metadata, Paginated, Version } from '@logitrackr/contracts'
 import { fetcher } from '../utils'
 
 export function useRevisions(id: string, page: number, pageSize: number) {

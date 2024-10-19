@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     versioning-strategy: "increase"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 10
     schedule:
       interval: "weekly"
     commit-message:

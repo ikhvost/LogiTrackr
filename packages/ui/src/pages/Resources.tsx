@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { SearchResponse as Record } from '@saas-versioning/contracts'
+import { SearchResponse as Record } from '@logitrackr/contracts'
 import { Table, Pagination, Search } from '../components'
 import { useSearch } from '../hooks'
 
@@ -58,7 +58,7 @@ export const Resources = () => {
   return (
     <>
       <div className="bg-gradient-to-r from-indigo-500 to-purple-500 rounded-3xl shadow-lg mb-12 p-10">
-        <h1 className="text-4xl font-bold text-white mb-8">Advanced Audit Log</h1>
+        <h1 className="text-4xl font-bold text-white mb-8">LogiTrackr</h1>
         <Search onSearch={actions.search} />
       </div>
       <Table<Record> data={records || []} columns={columns} onRowClick={actions.onRowClick} />

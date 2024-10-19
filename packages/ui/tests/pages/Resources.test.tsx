@@ -42,7 +42,7 @@ describe('<Resources />', () => {
   test('displays correct content', () => {
     render(<Resources />)
 
-    expect(screen.getByText('Advanced Audit Log')).toBeInTheDocument()
+    expect(screen.getByText('LogiTrackr')).toBeInTheDocument()
     expect(screen.getByPlaceholderText('Search by ID or type...')).toBeInTheDocument()
     expect(screen.getByText('ext1')).toBeInTheDocument()
     expect(screen.getByText('user')).toBeInTheDocument()

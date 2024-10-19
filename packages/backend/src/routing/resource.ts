@@ -1,4 +1,4 @@
-import { ResourcePayload, resourcePayloadSchema } from '@saas-versioning/contracts'
+import { ResourcePayload, resourcePayloadSchema } from '@logitrackr/contracts'
 import { FastifyRequest, RouteOptions, RouteHandlerMethod, FastifyReply } from 'fastify'
 import { eq } from 'drizzle-orm'
 import { Database } from '../core/database'
