@@ -25,7 +25,7 @@
   "devDependencies": {
     "@faker-js/faker": "^9.0.3",
     "builder-pattern": "^2.2.0",
-    "drizzle-kit": "^0.24.2",
+    "drizzle-kit": "^0.26.2",
     "tsx": "^4.19.1"
   }
 }
