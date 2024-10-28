@@ -19,7 +19,7 @@
     "ajv": "^8.17.1",
     "drizzle-orm": "0.35.2",
     "fastify": "^5.0.0",
-    "inversify": "^6.0.2",
+    "inversify": "^6.0.3",
     "postgres": "^3.4.5"
   },
   "devDependencies": {
