@@ -9,7 +9,7 @@
     "format:fix": "pnpm --recursive exec -- pnpm run format:fix"
   },
   "devDependencies": {
-    "@types/node": "^20.17.1",
+    "@types/node": "^22.8.6",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^6.21.0",
     "eslint": "^8.57.0",
@@ -27,6 +27,6 @@
     "vitest": "^2.1.3"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22.0.0"
   }
 }
