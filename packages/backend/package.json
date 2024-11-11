@@ -10,17 +10,18 @@
     "lint": "eslint tests src",
     "format:check": "prettier --check --ignore-unknown .",
     "format:fix": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml}\"",
-    "test": "vitest run --poolOptions.threads.singleThread --silent"
+    "test": "vitest run --config=vitest.config.ts"
   },
   "dependencies": {
-    "@logitrackr/contracts": "workspace:*",
     "@fastify/cors": "^10.0.1",
     "@fastify/env": "^5.0.1",
+    "@logitrackr/contracts": "workspace:*",
     "ajv": "^8.17.1",
     "drizzle-orm": "0.36.1",
     "fastify": "^5.1.0",
-    "inversify": "^6.0.3",
-    "postgres": "^3.4.5"
+    "inversify": "^6.1.1",
+    "postgres": "^3.4.5",
+    "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
     "@faker-js/faker": "^9.2.0",

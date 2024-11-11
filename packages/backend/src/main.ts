@@ -1,3 +1,4 @@
+import 'reflect-metadata/lite'
 import { bootstrapper } from './core'
 
 bootstrapper()
