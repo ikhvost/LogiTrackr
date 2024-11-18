@@ -19,7 +19,7 @@
     "ajv": "^8.17.1",
     "drizzle-orm": "0.36.1",
     "fastify": "^5.1.0",
-    "inversify": "^6.1.1",
+    "inversify": "^6.1.4",
     "postgres": "^3.4.5",
     "reflect-metadata": "^0.2.2"
   },
