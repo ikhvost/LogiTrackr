@@ -1,13 +1,10 @@
-import 'reflect-metadata/lite'
-import { bootstrapper } from './core'
+import { FastifyInstance } from 'fastify'
+import { application } from './core/application'
 
-bootstrapper()
-  .then(async (service) => {
-    await service.start()
-
-    process.on('SIGTERM', () => {
-      void service.stop().then(() => process.exit(1))
-    })
+application()
+  .then(async (app: FastifyInstance) => {
+    await app.listen({ port: app.config.APP_PORT })
+    process.on('SIGTERM', () => app.close().then(() => process.exit(1)))
   })
   .catch((error) => {
     // eslint-disable-next-line no-console

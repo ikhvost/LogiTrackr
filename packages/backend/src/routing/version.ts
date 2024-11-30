@@ -7,7 +7,6 @@ import {
 } from '@logitrackr/contracts'
 import { FastifyRequest, RouteOptions, RouteHandlerMethod, FastifyReply } from 'fastify'
 import { eq, desc, count as countFn } from 'drizzle-orm'
-import { Database } from '../core/database'
 import { versions } from '../model/database'
 
 const endpoints: RouteOptions[] = [
@@ -23,15 +22,13 @@ const endpoints: RouteOptions[] = [
       {
         params,
         query: { page, size },
-        container,
+        db,
       }: FastifyRequest<{
         Params: Identifiable
         Querystring: PaginationQuery
       }>,
       reply: FastifyReply,
     ) => {
-      const db = container.get<Database>(Database)
-
       const [{ count }] = await db.select({ count: countFn() }).from(versions).where(eq(versions.resourceId, params.id))
 
       const result = await db

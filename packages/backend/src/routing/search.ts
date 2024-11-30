@@ -1,7 +1,6 @@
 import { SearchQuery, searchQuerySchema, searchResponseSchema } from '@logitrackr/contracts'
 import { FastifyRequest, RouteOptions, RouteHandlerMethod, FastifyReply } from 'fastify'
 import { eq, desc, count as countFn, or, ilike, and } from 'drizzle-orm'
-import { Database } from '../core/database'
 import { resources, versions } from '../model/database'
 
 const endpoints: RouteOptions[] = [
@@ -15,14 +14,12 @@ const endpoints: RouteOptions[] = [
     handler: (async (
       {
         query: { q: search, page, size },
-        container,
+        db,
       }: FastifyRequest<{
         Querystring: SearchQuery
       }>,
       reply: FastifyReply,
     ) => {
-      const db = container.get<Database>(Database)
-
       const condition = search
         ? or(ilike(resources.externalId, `%${search}%`), ilike(resources.type, `%${search}%`))
         : undefined

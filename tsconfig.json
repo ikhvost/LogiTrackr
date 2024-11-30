@@ -1,20 +1,18 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Node 20",
-  "_version": "20.1.0",
   "compilerOptions": {
-    "types": [
-      "node"
-    ],
-    "lib": [
-      "es2023"
-    ],
-    "module": "node16",
-    "target": "es2022",
-    "strict": true,
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
-    "skipLibCheck": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "newLine": "lf",
+    "noUnusedLocals": true,
+    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node16"
+    "skipLibCheck": true,
+    "lib": ["ESNext"]
   }
 }

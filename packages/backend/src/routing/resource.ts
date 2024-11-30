@@ -1,8 +1,7 @@
 import { ResourcePayload, resourcePayloadSchema } from '@logitrackr/contracts'
 import { FastifyRequest, RouteOptions, RouteHandlerMethod, FastifyReply } from 'fastify'
 import { eq } from 'drizzle-orm'
-import { Database } from '../core/database'
-import { resources, versions } from '../model'
+import { resources, versions } from '../model/database'
 
 const endpoints: RouteOptions[] = [
   {
@@ -10,9 +9,7 @@ const endpoints: RouteOptions[] = [
     method: 'POST',
     bodyLimit: 1048576, // limits the overall size of the JSON to 1MB
     schema: { body: resourcePayloadSchema },
-    handler: (async ({ container, body }: FastifyRequest<{ Body: ResourcePayload }>, reply: FastifyReply) => {
-      const db = container.get<Database>(Database)
-
+    handler: (async ({ db, body }: FastifyRequest<{ Body: ResourcePayload }>, reply: FastifyReply) => {
       return db
         .transaction(async (tx) => {
           const [exists] = await tx

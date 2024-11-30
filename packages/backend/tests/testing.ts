@@ -1,17 +1,25 @@
-import { interfaces } from 'inversify'
-import { InjectOptions } from 'fastify'
+import postgres from 'postgres'
 import { migrate } from 'drizzle-orm/postgres-js/migrator'
-
-import { bootstrapper, Application } from '../src/core'
-import { Database } from '../src/core/database'
-import { resources, versions } from '../src/model'
+import { drizzle, PostgresJsDatabase } from 'drizzle-orm/postgres-js'
+import { FastifyInstance, InjectOptions } from 'fastify'
+import { application } from '../src/core/application'
+import * as schema from '../src/model/database'
 
 export class Testing {
-  constructor(private readonly container: interfaces.Container) {}
+  private readonly app: FastifyInstance
+  private readonly database: PostgresJsDatabase<typeof schema>
+
+  constructor(app: FastifyInstance) {
+    const client = postgres(app.config.DATABASE_CONNECTION)
+    const database = drizzle(client, { schema })
+
+    this.app = app
+    this.database = database
+  }
 
   static setup = async () => {
-    const service = await bootstrapper()
-    const testing = new Testing(service.container)
+    const app = await application()
+    const testing = new Testing(app)
 
     await testing.migrate()
     await testing.clean()
@@ -20,25 +28,19 @@ export class Testing {
   }
 
   get db() {
-    return this.container.get<Database>(Database)
+    return this.database
   }
 
   async request(options: InjectOptions) {
-    const app = this.container.get<Application>(Application)
-
-    return app.inject(options)
+    return this.app.inject(options)
   }
 
   async migrate() {
-    const db = this.container.get<Database>(Database)
-
-    await migrate(db, { migrationsFolder: './migrations' })
+    await migrate(this.database, { migrationsFolder: './migrations' })
   }
 
   async clean() {
-    const db = this.container.get<Database>(Database)
-
-    await db.delete(resources)
-    await db.delete(versions)
+    await this.database.delete(schema.resources)
+    await this.database.delete(schema.versions)
   }
 }
