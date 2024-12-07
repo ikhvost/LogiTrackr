@@ -17,7 +17,7 @@
     "@fastify/env": "^5.0.1",
     "@logitrackr/contracts": "workspace:*",
     "ajv": "^8.17.1",
-    "drizzle-orm": "0.36.3",
+    "drizzle-orm": "0.36.4",
     "fastify": "^5.1.0",
     "inversify": "^6.1.4",
     "postgres": "^3.4.5",
