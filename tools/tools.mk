@@ -37,7 +37,7 @@ db@generate: _assert_tools
 db@genarete: _ensure_audit_db_connection
 db@generate:
 	@cd packages/backend && \
-		./node_modules/.bin/drizzle-kit generate --config=./src/orm.ts
+		./node_modules/.bin/drizzle-kit generate --config=./src/core/migrator.ts
 
 db@migrate: ## Migrate database
 db@migrate: TOOLS=node
@@ -45,7 +45,7 @@ db@migrate: _assert_tools
 db@migrate: _ensure_audit_db_connection
 db@migrate:
 	@cd packages/backend && \
-		./node_modules/.bin/drizzle-kit migrate --config=./src/orm.ts
+		./node_modules/.bin/drizzle-kit migrate --config=./src/core/migrator.ts
 
 db@dashboard: ## Open Drizzle-kit Studio
 db@dashboard: TOOLS=node
@@ -53,7 +53,7 @@ db@dashboard: _assert_tools
 db@dashboard: _ensure_audit_db_connection
 db@dashboard:
 	@cd packages/backend && \
-		./node_modules/.bin/drizzle-kit studio --config=./src/orm.ts
+		./node_modules/.bin/drizzle-kit studio --config=./src/core/migrator.ts
 
 db@seed: ## Seed database
 db@seed: TOOLS=node

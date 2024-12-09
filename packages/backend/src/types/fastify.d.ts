@@ -1,5 +1,7 @@
-import { interfaces } from 'inversify'
-import { Config } from '../model'
+import { PostgresJsDatabase } from 'drizzle-orm/postgres-js'
+
+import { Config } from '../model/config'
+import * as schema from '../model/database'
 
 declare module 'fastify' {
   interface FastifyInstance {
@@ -7,6 +9,6 @@ declare module 'fastify' {
   }
 
   interface FastifyRequest {
-    container: interfaces.Container
+    db: PostgresJsDatabase<typeof schema>
   }
 }
