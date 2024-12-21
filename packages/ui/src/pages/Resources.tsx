@@ -42,9 +42,7 @@ export const Resources = () => {
         setPage(page + 1)
       }
     },
-    onRowClick: (record: Record) => {
-      navigate(`/${record.id}`, { state: { externalId: record.externalId } })
-    },
+    onRowClick: (record: Record) => navigate(`/${record.id}`, { state: { externalId: record.externalId } }),
     itemsPerPage: 10,
   }
 
