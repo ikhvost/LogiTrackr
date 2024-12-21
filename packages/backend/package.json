@@ -5,6 +5,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "pnpm clean && tsc",
+    "bundle": "pnpm clean && esbuild src/main.ts --bundle --platform=node --target=node22 --outdir=dist --minify",
     "watch": "tsx watch src/main.ts",
     "start": "node ./dist/main.js",
     "lint": "eslint tests src",
@@ -25,6 +26,7 @@
     "ajv": "^8.17.1",
     "builder-pattern": "^2.2.0",
     "drizzle-kit": "^0.30.1",
-    "tsx": "^4.19.2"
+    "tsx": "^4.19.2",
+    "esbuild": "^0.24.2"
   }
 }
