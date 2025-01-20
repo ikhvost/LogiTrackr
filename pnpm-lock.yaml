@@ -60,8 +60,8 @@ importers:
   packages/backend:
     dependencies:
       '@fastify/cors':
-        specifier: ^10.0.1
-        version: 10.0.1
+        specifier: ^10.0.2
+        version: 10.0.2
       '@fastify/env':
         specifier: ^5.0.2
         version: 5.0.2
@@ -1043,8 +1043,8 @@ packages:
   '@fastify/ajv-compiler@4.0.1':
     resolution: {integrity: sha512-DxrBdgsjNLP0YM6W5Hd6/Fmj43S8zMKiFJYgi+Ri3htTGAowPVG/tG1wpnWLMjufEnehRivUCKZ1pLDIoZdTuw==}
 
-  '@fastify/cors@10.0.1':
-    resolution: {integrity: sha512-O8JIf6448uQbOgzSkCqhClw6gFTAqrdfeA6R3fc/3gwTJGUp7gl8/3tbNB+6INuu4RmgVOq99BmvdGbtu5pgOA==}
+  '@fastify/cors@10.0.2':
+    resolution: {integrity: sha512-DGdxOG36sS/tZv1NFiCJGi7wGuXOSPL2CmNX5PbOVKx0C6LuIALRMrqLByHTCcX1Rbl8NJ9IWlJex32bzydvlw==}
 
   '@fastify/env@5.0.2':
     resolution: {integrity: sha512-4m/jHS3s/G/DBJVODob9sxGUei/Ij8JFbA2PYqBfoihTm+Qqae2xD9xhez68UFZu1d4SNJPIb6uAOwbNvRYw+A==}
@@ -3004,8 +3004,8 @@ packages:
     resolution: {integrity: sha512-gXah6aZrcUxjWg2zR2MwouP2eHlCBzdV4pygudehaKXSGW4v2AsRQUK+lwwXhii6KFZcunEnmSUoYp5CXibxtA==}
     engines: {node: '>= 0.4'}
 
-  obliterator@2.0.4:
-    resolution: {integrity: sha512-lgHwxlxV1qIg1Eap7LgIeoBWIMFibOjbrYPIPJZcI1mmGAI2m3lNYpK12Y+GBdPQ0U1hRwSord7GIaawz962qQ==}
+  obliterator@2.0.5:
+    resolution: {integrity: sha512-42CPE9AhahZRsMNslczq0ctAEtqk8Eka26QofnqC346BZdHDySk3LWka23LI7ULIw11NmltpiLagIq8gBozxTw==}
 
   on-exit-leak-free@2.1.2:
     resolution: {integrity: sha512-0eJJY6hXLGf1udHwfNftBqH+g73EU4B504nZeKpz1sYRKafAghwxEJunB2O7rDZkL4PGfsMVnTXZ2EjibbqcsA==}
@@ -4500,7 +4500,7 @@ snapshots:
       ajv-formats: 3.0.1(ajv@8.17.1)
       fast-uri: 3.0.3
 
-  '@fastify/cors@10.0.1':
+  '@fastify/cors@10.0.2':
     dependencies:
       fastify-plugin: 5.0.1
       mnemonist: 0.39.8
@@ -6694,7 +6694,7 @@ snapshots:
 
   mnemonist@0.39.8:
     dependencies:
-      obliterator: 2.0.4
+      obliterator: 2.0.5
 
   ms@2.1.2: {}
 
@@ -6777,7 +6777,7 @@ snapshots:
       define-properties: 1.2.1
       es-object-atoms: 1.0.0
 
-  obliterator@2.0.4: {}
+  obliterator@2.0.5: {}
 
   on-exit-leak-free@2.1.2: {}
 
