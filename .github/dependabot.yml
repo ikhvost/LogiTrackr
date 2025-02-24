@@ -9,8 +9,5 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
-    reviewers:
-      - "ikhvost"
-      - "maciejtrybula"
     labels:
       - "dependencies"
