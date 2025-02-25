@@ -60,8 +60,8 @@ importers:
   packages/backend:
     dependencies:
       '@fastify/cors':
-        specifier: ^10.0.2
-        version: 10.0.2
+        specifier: ^10.1.0
+        version: 10.1.0
       '@fastify/env':
         specifier: ^5.0.2
         version: 5.0.2
@@ -942,8 +942,8 @@ packages:
   '@fastify/ajv-compiler@4.0.2':
     resolution: {integrity: sha512-Rkiu/8wIjpsf46Rr+Fitd3HRP+VsxUFDDeag0hs9L0ksfnwx2g7SPQQTFL0E8Qv+rfXzQOxBJnjUB9ITUDjfWQ==}
 
-  '@fastify/cors@10.0.2':
-    resolution: {integrity: sha512-DGdxOG36sS/tZv1NFiCJGi7wGuXOSPL2CmNX5PbOVKx0C6LuIALRMrqLByHTCcX1Rbl8NJ9IWlJex32bzydvlw==}
+  '@fastify/cors@10.1.0':
+    resolution: {integrity: sha512-MZyBCBJtII60CU9Xme/iE4aEy8G7QpzGR8zkdXZkDFt7ElEMachbE61tfhAG/bvSaULlqlf0huMT12T7iqEmdQ==}
 
   '@fastify/env@5.0.2':
     resolution: {integrity: sha512-4m/jHS3s/G/DBJVODob9sxGUei/Ij8JFbA2PYqBfoihTm+Qqae2xD9xhez68UFZu1d4SNJPIb6uAOwbNvRYw+A==}
@@ -2791,8 +2791,8 @@ packages:
     resolution: {integrity: sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==}
     engines: {node: '>=16 || 14 >=14.17'}
 
-  mnemonist@0.39.8:
-    resolution: {integrity: sha512-vyWo2K3fjrUw8YeeZ1zF0fy6Mu59RHokURlld8ymdUPjMlD9EC9ov1/YPqTgqRvUN9nTr3Gqfz29LYAmu0PHPQ==}
+  mnemonist@0.40.0:
+    resolution: {integrity: sha512-kdd8AFNig2AD5Rkih7EPCXhu/iMvwevQFX/uEiGhZyPZi7fHqOoF4V4kHLpCfysxXMgQ4B52kdPMCwARshKvEg==}
 
   ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
@@ -4276,10 +4276,10 @@ snapshots:
       ajv-formats: 3.0.1(ajv@8.17.1)
       fast-uri: 3.0.5
 
-  '@fastify/cors@10.0.2':
+  '@fastify/cors@10.1.0':
     dependencies:
       fastify-plugin: 5.0.1
-      mnemonist: 0.39.8
+      mnemonist: 0.40.0
 
   '@fastify/env@5.0.2':
     dependencies:
@@ -6436,7 +6436,7 @@ snapshots:
 
   minipass@7.1.2: {}
 
-  mnemonist@0.39.8:
+  mnemonist@0.40.0:
     dependencies:
       obliterator: 2.0.5
 
