@@ -60,8 +60,8 @@ importers:
   packages/backend:
     dependencies:
       '@fastify/cors':
-        specifier: ^10.1.0
-        version: 10.1.0
+        specifier: ^11.0.0
+        version: 11.0.0
       '@fastify/env':
         specifier: ^5.0.2
         version: 5.0.2
@@ -70,7 +70,7 @@ importers:
         version: link:../contracts
       drizzle-orm:
         specifier: 0.40.0
-        version: 0.40.0(@libsql/client-wasm@0.14.0)(postgres@3.4.5)
+        version: 0.40.0(@libsql/client-wasm@0.14.0)(gel@2.0.0)(postgres@3.4.5)
       fastify:
         specifier: ^5.2.1
         version: 5.2.1
@@ -792,8 +792,8 @@ packages:
   '@fastify/ajv-compiler@4.0.2':
     resolution: {integrity: sha512-Rkiu/8wIjpsf46Rr+Fitd3HRP+VsxUFDDeag0hs9L0ksfnwx2g7SPQQTFL0E8Qv+rfXzQOxBJnjUB9ITUDjfWQ==}
 
-  '@fastify/cors@10.1.0':
-    resolution: {integrity: sha512-MZyBCBJtII60CU9Xme/iE4aEy8G7QpzGR8zkdXZkDFt7ElEMachbE61tfhAG/bvSaULlqlf0huMT12T7iqEmdQ==}
+  '@fastify/cors@11.0.0':
+    resolution: {integrity: sha512-41Bx0LVGr2a6DnnhDN/SgfDlTRNZtEs8niPxyoymV6Hw09AIdz/9Rn/0Fpu+pBOs6kviwS44JY2mB8NcU2qSAA==}
 
   '@fastify/env@5.0.2':
     resolution: {integrity: sha512-4m/jHS3s/G/DBJVODob9sxGUei/Ij8JFbA2PYqBfoihTm+Qqae2xD9xhez68UFZu1d4SNJPIb6uAOwbNvRYw+A==}
@@ -4079,7 +4079,7 @@ snapshots:
       ajv-formats: 3.0.1(ajv@8.17.1)
       fast-uri: 3.0.5
 
-  '@fastify/cors@10.1.0':
+  '@fastify/cors@11.0.0':
     dependencies:
       fastify-plugin: 5.0.1
       mnemonist: 0.40.0
@@ -4957,9 +4957,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.40.0(@libsql/client-wasm@0.14.0)(postgres@3.4.5):
+  drizzle-orm@0.40.0(@libsql/client-wasm@0.14.0)(gel@2.0.0)(postgres@3.4.5):
     optionalDependencies:
       '@libsql/client-wasm': 0.14.0
+      gel: 2.0.0
       postgres: 3.4.5
 
   dunder-proto@1.0.1:
