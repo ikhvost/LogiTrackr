@@ -27,6 +27,6 @@
     "builder-pattern": "^2.2.0",
     "drizzle-kit": "^0.30.5",
     "tsx": "^4.19.3",
-    "esbuild": "^0.25.0"
+    "esbuild": "^0.25.1"
   }
 }
