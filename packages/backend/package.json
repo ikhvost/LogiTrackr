@@ -17,7 +17,7 @@
     "@fastify/cors": "^11.0.1",
     "@fastify/env": "^5.0.2",
     "@logitrackr/contracts": "workspace:*",
-    "drizzle-orm": "0.40.0",
+    "drizzle-orm": "0.41.0",
     "fastify": "^5.2.1",
     "postgres": "^3.4.5"
   },
