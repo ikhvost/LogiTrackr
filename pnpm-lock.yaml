@@ -69,8 +69,8 @@ importers:
         specifier: workspace:*
         version: link:../contracts
       drizzle-orm:
-        specifier: 0.40.0
-        version: 0.40.0(@libsql/client-wasm@0.14.0)(gel@2.0.2)(postgres@3.4.5)
+        specifier: 0.43.1
+        version: 0.43.1(@libsql/client-wasm@0.14.0)(gel@2.0.2)(postgres@3.4.5)
       fastify:
         specifier: ^5.2.1
         version: 5.2.1
@@ -885,8 +885,8 @@ packages:
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
 
-  '@eslint-community/eslint-utils@4.6.0':
-    resolution: {integrity: sha512-WhCn7Z7TauhBtmzhvKpoQs0Wwb/kBcy4CwpuI0/eEIr2Lx2auxmulAzLr91wVZJaz47iUZdkXOK7WlAfxGKCnA==}
+  '@eslint-community/eslint-utils@4.6.1':
+    resolution: {integrity: sha512-KTsJMmobmbrFLe3LDh0PC2FXpcSYJt/MLjlkh/9LEnmKYLSYmT/0EW9JWANjeoemiuZrmogti0tW5Ch+qNUYDw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
@@ -1781,8 +1781,8 @@ packages:
     resolution: {integrity: sha512-U4wWit0fyZuGuP7iNmRleQyK2V8wCuv57vf5l3MnG4z4fzNTjY/U13M8owyQ5RavqvqxBifWORaR3wIUzlN64g==}
     hasBin: true
 
-  drizzle-orm@0.40.0:
-    resolution: {integrity: sha512-7ptk/HQiMSrEZHnAsSlBESXWj52VwgMmyTEfoNmpNN2ZXpcz13LwHfXTIghsAEud7Z5UJhDOp8U07ujcqme7wg==}
+  drizzle-orm@0.43.1:
+    resolution: {integrity: sha512-dUcDaZtE/zN4RV/xqGrVSMpnEczxd5cIaoDeor7Zst9wOe/HzC/7eAaulywWGYXdDEc9oBPMjayVEDg0ziTLJA==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=4'
@@ -1792,7 +1792,7 @@ packages:
       '@neondatabase/serverless': '>=0.10.0'
       '@op-engineering/op-sqlite': '>=2'
       '@opentelemetry/api': ^1.4.1
-      '@planetscale/database': '>=1'
+      '@planetscale/database': '>=1.13'
       '@prisma/client': '*'
       '@tidbcloud/serverless': '*'
       '@types/better-sqlite3': '*'
@@ -4271,7 +4271,7 @@ snapshots:
       eslint: 8.57.0
       eslint-visitor-keys: 3.4.3
 
-  '@eslint-community/eslint-utils@4.6.0(eslint@9.16.0(jiti@1.21.6))':
+  '@eslint-community/eslint-utils@4.6.1(eslint@9.16.0(jiti@1.21.6))':
     dependencies:
       eslint: 9.16.0(jiti@1.21.6)
       eslint-visitor-keys: 3.4.3
@@ -5229,7 +5229,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.40.0(@libsql/client-wasm@0.14.0)(gel@2.0.2)(postgres@3.4.5):
+  drizzle-orm@0.43.1(@libsql/client-wasm@0.14.0)(gel@2.0.2)(postgres@3.4.5):
     optionalDependencies:
       '@libsql/client-wasm': 0.14.0
       gel: 2.0.2
@@ -5749,7 +5749,7 @@ snapshots:
 
   eslint@9.16.0(jiti@1.21.6):
     dependencies:
-      '@eslint-community/eslint-utils': 4.6.0(eslint@9.16.0(jiti@1.21.6))
+      '@eslint-community/eslint-utils': 4.6.1(eslint@9.16.0(jiti@1.21.6))
       '@eslint-community/regexpp': 4.12.1
       '@eslint/config-array': 0.19.2
       '@eslint/core': 0.9.1
