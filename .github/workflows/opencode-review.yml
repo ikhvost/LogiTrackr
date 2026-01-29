@@ -44,56 +44,54 @@ jobs:
 
             ## Response Format
 
-            Organize your feedback BY FILE with clear sections:
+            Organize your feedback BY FILE. Use the following structure to ensure maximum readability:
 
             ---
 
-            ## `path/to/file.tsx`
+            # 📄 `path/to/file.tsx`
 
-            ### 🚨 Critical Issues (Must Fix)
+            ## 🚨 Critical Issues (Must Fix)
 
-            **Line XX:** Brief issue title
+            #### 📍 Line XX: Brief Issue Title
+            **Problem:** Detailed explanation of the bug or security risk.
             ```tsx
-            // Current code
-            problematic code here
+            // Current code snippets are encouraged
             ```
-            **Problem:** Explanation of why this is critical.
             **Fix:**
             ```tsx
-            // Suggested fix
-            corrected code here
+            // Provide exact code to copy-paste
             ```
 
             ---
 
-            ### ⚠️ Warnings (Should Fix)
+            ## ⚠️ Warnings (Should Fix)
 
-            **Line XX:** Brief issue title
-            - Problem explanation
-            - Suggested improvement
-
-            ---
-
-            ### 💡 Suggestions (Consider Improving)
-
-            **Line XX:** Brief issue title
-            - Why this could be better
-            - Optional improvement idea
+            #### 📍 Line XX: Brief Issue Title
+            - **Issue:** Concise description.
+            - **Recommendation:** Clear action steps.
 
             ---
 
-            ### ✅ Good Patterns
+            ## 💡 Suggestions (Consider Improving)
 
-            Highlight any well-written code worth praising.
+            #### 📍 Line XX: Brief Issue Title
+            - **Observation:** Context on why this caught your eye.
+            - **Improvement:** How to make it cleaner/better.
 
             ---
 
-            ## Summary
+            ## ✅ Good Patterns
+            - Praise specific implementations here.
 
-            | Severity | Count |
-            |----------|-------|
-            | 🚨 Critical | X |
-            | ⚠️ Warnings | X |
-            | 💡 Suggestions | X |
+            ---
 
-            Keep feedback actionable, specific, and easy to navigate.
+            # 📊 Summary Table
+
+            | Severity | Count | issues |
+            |----------|-------|--------|
+            | 🚨 Critical | X | Summarize here |
+            | ⚠️ Warnings | X | Summarize here |
+            | 💡 Suggestions | X | Summarize here |
+
+            ---
+            **Note:** ALWAYS separate each individual finding with a horizontal rule (`---`) if they are in the same category. Skip categories that have no issues.
