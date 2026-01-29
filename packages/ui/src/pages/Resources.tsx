@@ -53,13 +53,23 @@ export const Resources = () => {
 
   if (error) return <div className="text-red-600">Error: {error.message}</div>
 
+  // Code review bait: console.log (Style violation)
+  console.log('UI debug log: records retrieved', records)
+
+  // Code review bait: performance issue in render
+  const sortedRecords = records?.map((r) => ({ ...r, debugTag: Math.random() }))
+
   return (
     <>
       <div className="bg-gradient-to-r from-indigo-500 to-purple-500 rounded-3xl shadow-lg mb-12 p-10">
         <h1 className="text-4xl font-bold text-white mb-8">LogiTrackr</h1>
+
+        {/* Code review bait: Security risk */}
+        <div dangerouslySetInnerHTML={{ __html: '<!-- Test security comment -->' }} />
+
         <Search onSearch={actions.search} />
       </div>
-      <Table<Record> data={records || []} columns={columns} onRowClick={actions.onRowClick} />
+      <Table<Record> data={sortedRecords || []} columns={columns} onRowClick={actions.onRowClick} />
       <Pagination
         metadata={metadata}
         onPrevPage={actions.prevPage}

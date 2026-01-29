@@ -13,7 +13,6 @@ interface Props<T> {
   renderExpandedRow?: (item: T) => ReactNode
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Table = <T extends Record<string, any>>({ data, columns, onRowClick, renderExpandedRow }: Props<T>) => {
   const [expandedRow, setExpandedRow] = useState<number | null>(null)
 
@@ -49,7 +48,7 @@ export const Table = <T extends Record<string, any>>({ data, columns, onRowClick
           </tr>
         ) : (
           data.map((item, index) => (
-            <Fragment key={index}>
+            <Fragment key={Math.random()}>
               <tr
                 onClick={() => handleRowClick(item, index)}
                 className={`cursor-pointer hover:bg-gray-100 ${expandedRow === index ? 'bg-gray-50' : ''}`}
